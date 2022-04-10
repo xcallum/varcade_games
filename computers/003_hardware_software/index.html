@@ -1,0 +1,1733 @@
+
+<!doctype html>
+<html lang="en" class="no-js">
+  <head>
+    
+      <meta charset="utf-8">
+      <meta name="viewport" content="width=device-width,initial-scale=1">
+      
+      
+      
+      
+        <link rel="canonical" href="https://codeovertime.com/computers/003_hardware_software/">
+      
+      <link rel="icon" href="../../img/logo.png">
+      <meta name="generator" content="mkdocs-1.2.1, mkdocs-material-7.1.9">
+    
+    
+      
+        <title>Hardware VS. Software - Code Over Time [ALPHA]</title>
+      
+    
+    
+      <link rel="stylesheet" href="../../assets/stylesheets/main.ca7ac06f.min.css">
+      
+        
+        <link rel="stylesheet" href="../../assets/stylesheets/palette.f1a3b89f.min.css">
+        
+      
+    
+    
+    
+      
+        
+        <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+        <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Roboto:300,400,400i,700%7CRoboto+Mono&display=fallback">
+        <style>:root{--md-text-font-family:"Roboto";--md-code-font-family:"Roboto Mono"}</style>
+      
+    
+    
+    
+    
+      
+
+
+    
+    
+  </head>
+  
+  
+    
+    
+      
+    
+    
+    
+    
+    <body dir="ltr" data-md-color-scheme="default" data-md-color-primary="black" data-md-color-accent="">
+  
+    
+    <script>function __prefix(e){return new URL("../..",location).pathname+"."+e}function __get(e,t=localStorage){return JSON.parse(t.getItem(__prefix(e)))}</script>
+    
+      <script>var palette=__get("__palette");if(null!==palette&&"object"==typeof palette.color)for(var key in palette.color)document.body.setAttribute("data-md-color-"+key,palette.color[key])</script>
+    
+    <input class="md-toggle" data-md-toggle="drawer" type="checkbox" id="__drawer" autocomplete="off">
+    <input class="md-toggle" data-md-toggle="search" type="checkbox" id="__search" autocomplete="off">
+    <label class="md-overlay" for="__drawer"></label>
+    <div data-md-component="skip">
+      
+        
+        <a href="#hardware-vs-software" class="md-skip">
+          Skip to content
+        </a>
+      
+    </div>
+    <div data-md-component="announce">
+      
+    </div>
+    
+      <header class="md-header" data-md-component="header">
+  <nav class="md-header__inner md-grid" aria-label="Header">
+    <a href="../.." title="Code Over Time [ALPHA]" class="md-header__button md-logo" aria-label="Code Over Time [ALPHA]" data-md-component="logo">
+      
+  <img src="../../img/logo.png" alt="logo">
+
+    </a>
+    <label class="md-header__button md-icon" for="__drawer">
+      <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M3 6h18v2H3V6m0 5h18v2H3v-2m0 5h18v2H3v-2z"/></svg>
+    </label>
+    <div class="md-header__title" data-md-component="header-title">
+      <div class="md-header__ellipsis">
+        <div class="md-header__topic">
+          <span class="md-ellipsis">
+            Code Over Time [ALPHA]
+          </span>
+        </div>
+        <div class="md-header__topic" data-md-component="header-topic">
+          <span class="md-ellipsis">
+            
+              Hardware VS. Software
+            
+          </span>
+        </div>
+      </div>
+    </div>
+    
+      <form class="md-header__option" data-md-component="palette">
+        
+          
+          
+          <input class="md-option" data-md-color-media="" data-md-color-scheme="default" data-md-color-primary="black" data-md-color-accent=""  aria-label="Dark mode"  type="radio" name="__palette" id="__palette_1">
+          
+            <label class="md-header__button md-icon" title="Dark mode" for="__palette_2" hidden>
+              <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M7 10a2 2 0 0 1 2 2 2 2 0 0 1-2 2 2 2 0 0 1-2-2 2 2 0 0 1 2-2m10-3a5 5 0 0 1 5 5 5 5 0 0 1-5 5H7a5 5 0 0 1-5-5 5 5 0 0 1 5-5h10M7 9a3 3 0 0 0-3 3 3 3 0 0 0 3 3h10a3 3 0 0 0 3-3 3 3 0 0 0-3-3H7z"/></svg>
+            </label>
+          
+        
+          
+          
+          <input class="md-option" data-md-color-media="" data-md-color-scheme="slate" data-md-color-primary="black" data-md-color-accent=""  aria-label="Light mode"  type="radio" name="__palette" id="__palette_2">
+          
+            <label class="md-header__button md-icon" title="Light mode" for="__palette_1" hidden>
+              <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M17 7H7a5 5 0 0 0-5 5 5 5 0 0 0 5 5h10a5 5 0 0 0 5-5 5 5 0 0 0-5-5m0 8a3 3 0 0 1-3-3 3 3 0 0 1 3-3 3 3 0 0 1 3 3 3 3 0 0 1-3 3z"/></svg>
+            </label>
+          
+        
+      </form>
+    
+    
+    
+      <label class="md-header__button md-icon" for="__search">
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M9.5 3A6.5 6.5 0 0 1 16 9.5c0 1.61-.59 3.09-1.56 4.23l.27.27h.79l5 5-1.5 1.5-5-5v-.79l-.27-.27A6.516 6.516 0 0 1 9.5 16 6.5 6.5 0 0 1 3 9.5 6.5 6.5 0 0 1 9.5 3m0 2C7 5 5 7 5 9.5S7 14 9.5 14 14 12 14 9.5 12 5 9.5 5z"/></svg>
+      </label>
+      
+<div class="md-search" data-md-component="search" role="dialog">
+  <label class="md-search__overlay" for="__search"></label>
+  <div class="md-search__inner" role="search">
+    <form class="md-search__form" name="search">
+      <input type="text" class="md-search__input" name="query" aria-label="Search" placeholder="Search" autocapitalize="off" autocorrect="off" autocomplete="off" spellcheck="false" data-md-component="search-query" data-md-state="active" required>
+      <label class="md-search__icon md-icon" for="__search">
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M9.5 3A6.5 6.5 0 0 1 16 9.5c0 1.61-.59 3.09-1.56 4.23l.27.27h.79l5 5-1.5 1.5-5-5v-.79l-.27-.27A6.516 6.516 0 0 1 9.5 16 6.5 6.5 0 0 1 3 9.5 6.5 6.5 0 0 1 9.5 3m0 2C7 5 5 7 5 9.5S7 14 9.5 14 14 12 14 9.5 12 5 9.5 5z"/></svg>
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M20 11v2H8l5.5 5.5-1.42 1.42L4.16 12l7.92-7.92L13.5 5.5 8 11h12z"/></svg>
+      </label>
+      <button type="reset" class="md-search__icon md-icon" aria-label="Clear" tabindex="-1">
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M19 6.41 17.59 5 12 10.59 6.41 5 5 6.41 10.59 12 5 17.59 6.41 19 12 13.41 17.59 19 19 17.59 13.41 12 19 6.41z"/></svg>
+      </button>
+    </form>
+    <div class="md-search__output">
+      <div class="md-search__scrollwrap" data-md-scrollfix>
+        <div class="md-search-result" data-md-component="search-result">
+          <div class="md-search-result__meta">
+            Initializing search
+          </div>
+          <ol class="md-search-result__list"></ol>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+    
+    
+  </nav>
+</header>
+    
+    <div class="md-container" data-md-component="container">
+      
+      
+        
+      
+      <main class="md-main" data-md-component="main">
+        <div class="md-main__inner md-grid">
+          
+            
+              
+              <div class="md-sidebar md-sidebar--primary" data-md-component="sidebar" data-md-type="navigation" >
+                <div class="md-sidebar__scrollwrap">
+                  <div class="md-sidebar__inner">
+                    
+
+
+<nav class="md-nav md-nav--primary" aria-label="Navigation" data-md-level="0">
+  <label class="md-nav__title" for="__drawer">
+    <a href="../.." title="Code Over Time [ALPHA]" class="md-nav__button md-logo" aria-label="Code Over Time [ALPHA]" data-md-component="logo">
+      
+  <img src="../../img/logo.png" alt="logo">
+
+    </a>
+    Code Over Time [ALPHA]
+  </label>
+  
+  <ul class="md-nav__list" data-md-scrollfix>
+    
+      
+      
+      
+
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../.." class="md-nav__link">
+        Welcome
+      </a>
+    </li>
+  
+
+    
+      
+      
+      
+
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../curriculum/" class="md-nav__link">
+        Curriculum
+      </a>
+    </li>
+  
+
+    
+      
+      
+      
+
+  
+  
+  
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+      
+        <input class="md-nav__toggle md-toggle" data-md-toggle="__nav_3" type="checkbox" id="__nav_3" >
+      
+      <label class="md-nav__link" for="__nav_3">
+        Reading Material
+        <span class="md-nav__icon md-icon"></span>
+      </label>
+      <nav class="md-nav" aria-label="Reading Material" data-md-level="1">
+        <label class="md-nav__title" for="__nav_3">
+          <span class="md-nav__icon md-icon"></span>
+          Reading Material
+        </label>
+        <ul class="md-nav__list" data-md-scrollfix>
+          
+            
+  
+  
+  
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+      
+        <input class="md-nav__toggle md-toggle" data-md-toggle="__nav_3_1" type="checkbox" id="__nav_3_1" >
+      
+      <label class="md-nav__link" for="__nav_3_1">
+        Systems
+        <span class="md-nav__icon md-icon"></span>
+      </label>
+      <nav class="md-nav" aria-label="Systems" data-md-level="2">
+        <label class="md-nav__title" for="__nav_3_1">
+          <span class="md-nav__icon md-icon"></span>
+          Systems
+        </label>
+        <ul class="md-nav__list" data-md-scrollfix>
+          
+            
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../systems/" class="md-nav__link">
+        Introduction
+      </a>
+    </li>
+  
+
+          
+            
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../systems/io/" class="md-nav__link">
+        Inputs & Outputs
+      </a>
+    </li>
+  
+
+          
+        </ul>
+      </nav>
+    </li>
+  
+
+          
+            
+  
+  
+  
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+      
+        <input class="md-nav__toggle md-toggle" data-md-toggle="__nav_3_2" type="checkbox" id="__nav_3_2" >
+      
+      <label class="md-nav__link" for="__nav_3_2">
+        Hardware
+        <span class="md-nav__icon md-icon"></span>
+      </label>
+      <nav class="md-nav" aria-label="Hardware" data-md-level="2">
+        <label class="md-nav__title" for="__nav_3_2">
+          <span class="md-nav__icon md-icon"></span>
+          Hardware
+        </label>
+        <ul class="md-nav__list" data-md-scrollfix>
+          
+            
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../hardware/" class="md-nav__link">
+        Introduction
+      </a>
+    </li>
+  
+
+          
+            
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../hardware/keyboards_and_mice/" class="md-nav__link">
+        Mouse & Keyboard
+      </a>
+    </li>
+  
+
+          
+        </ul>
+      </nav>
+    </li>
+  
+
+          
+            
+  
+  
+  
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+      
+        <input class="md-nav__toggle md-toggle" data-md-toggle="__nav_3_3" type="checkbox" id="__nav_3_3" >
+      
+      <label class="md-nav__link" for="__nav_3_3">
+        Software
+        <span class="md-nav__icon md-icon"></span>
+      </label>
+      <nav class="md-nav" aria-label="Software" data-md-level="2">
+        <label class="md-nav__title" for="__nav_3_3">
+          <span class="md-nav__icon md-icon"></span>
+          Software
+        </label>
+        <ul class="md-nav__list" data-md-scrollfix>
+          
+            
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../software/" class="md-nav__link">
+        Introduction
+      </a>
+    </li>
+  
+
+          
+        </ul>
+      </nav>
+    </li>
+  
+
+          
+            
+  
+  
+  
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+      
+        <input class="md-nav__toggle md-toggle" data-md-toggle="__nav_3_4" type="checkbox" id="__nav_3_4" >
+      
+      <label class="md-nav__link" for="__nav_3_4">
+        Coding
+        <span class="md-nav__icon md-icon"></span>
+      </label>
+      <nav class="md-nav" aria-label="Coding" data-md-level="2">
+        <label class="md-nav__title" for="__nav_3_4">
+          <span class="md-nav__icon md-icon"></span>
+          Coding
+        </label>
+        <ul class="md-nav__list" data-md-scrollfix>
+          
+            
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../coding/" class="md-nav__link">
+        Introduction
+      </a>
+    </li>
+  
+
+          
+        </ul>
+      </nav>
+    </li>
+  
+
+          
+        </ul>
+      </nav>
+    </li>
+  
+
+    
+      
+      
+      
+
+  
+  
+  
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+      
+        <input class="md-nav__toggle md-toggle" data-md-toggle="__nav_4" type="checkbox" id="__nav_4" >
+      
+      <label class="md-nav__link" for="__nav_4">
+        Your Internship
+        <span class="md-nav__icon md-icon"></span>
+      </label>
+      <nav class="md-nav" aria-label="Your Internship" data-md-level="1">
+        <label class="md-nav__title" for="__nav_4">
+          <span class="md-nav__icon md-icon"></span>
+          Your Internship
+        </label>
+        <ul class="md-nav__list" data-md-scrollfix>
+          
+            
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../internship/" class="md-nav__link">
+        Overview
+      </a>
+    </li>
+  
+
+          
+            
+  
+  
+  
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+      
+        <input class="md-nav__toggle md-toggle" data-md-toggle="__nav_4_2" type="checkbox" id="__nav_4_2" >
+      
+      <label class="md-nav__link" for="__nav_4_2">
+        Getting Set Up
+        <span class="md-nav__icon md-icon"></span>
+      </label>
+      <nav class="md-nav" aria-label="Getting Set Up" data-md-level="2">
+        <label class="md-nav__title" for="__nav_4_2">
+          <span class="md-nav__icon md-icon"></span>
+          Getting Set Up
+        </label>
+        <ul class="md-nav__list" data-md-scrollfix>
+          
+            
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../setup/" class="md-nav__link">
+        Introduction
+      </a>
+    </li>
+  
+
+          
+            
+  
+  
+  
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+      
+        <input class="md-nav__toggle md-toggle" data-md-toggle="__nav_4_2_2" type="checkbox" id="__nav_4_2_2" >
+      
+      <label class="md-nav__link" for="__nav_4_2_2">
+        Dev Environment
+        <span class="md-nav__icon md-icon"></span>
+      </label>
+      <nav class="md-nav" aria-label="Dev Environment" data-md-level="3">
+        <label class="md-nav__title" for="__nav_4_2_2">
+          <span class="md-nav__icon md-icon"></span>
+          Dev Environment
+        </label>
+        <ul class="md-nav__list" data-md-scrollfix>
+          
+            
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../setup/environment_setup/intro/" class="md-nav__link">
+        Overview
+      </a>
+    </li>
+  
+
+          
+            
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../setup/environment_setup/linux/" class="md-nav__link">
+        Linux
+      </a>
+    </li>
+  
+
+          
+            
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../setup/environment_setup/windows/" class="md-nav__link">
+        Windows
+      </a>
+    </li>
+  
+
+          
+            
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../setup/environment_setup/osx/" class="md-nav__link">
+        OSX
+      </a>
+    </li>
+  
+
+          
+            
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../setup/environment_setup/testing_your_setup/" class="md-nav__link">
+        Testing your setup
+      </a>
+    </li>
+  
+
+          
+        </ul>
+      </nav>
+    </li>
+  
+
+          
+            
+  
+  
+  
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+      
+        <input class="md-nav__toggle md-toggle" data-md-toggle="__nav_4_2_3" type="checkbox" id="__nav_4_2_3" >
+      
+      <label class="md-nav__link" for="__nav_4_2_3">
+        Project Setup
+        <span class="md-nav__icon md-icon"></span>
+      </label>
+      <nav class="md-nav" aria-label="Project Setup" data-md-level="3">
+        <label class="md-nav__title" for="__nav_4_2_3">
+          <span class="md-nav__icon md-icon"></span>
+          Project Setup
+        </label>
+        <ul class="md-nav__list" data-md-scrollfix>
+          
+            
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../setup/varcade_games/intro/" class="md-nav__link">
+        Varcade Games
+      </a>
+    </li>
+  
+
+          
+            
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../setup/varcade_games/get_the_code/" class="md-nav__link">
+        Get the code
+      </a>
+    </li>
+  
+
+          
+            
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../setup/varcade_games/running_vcg/" class="md-nav__link">
+        Running Varcade Games
+      </a>
+    </li>
+  
+
+          
+            
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../setup/varcade_games/adding_a_game/" class="md-nav__link">
+        Adding a game
+      </a>
+    </li>
+  
+
+          
+        </ul>
+      </nav>
+    </li>
+  
+
+          
+            
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../setup/next_steps/" class="md-nav__link">
+        Next Steps
+      </a>
+    </li>
+  
+
+          
+        </ul>
+      </nav>
+    </li>
+  
+
+          
+            
+  
+  
+  
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+      
+        <input class="md-nav__toggle md-toggle" data-md-toggle="__nav_4_3" type="checkbox" id="__nav_4_3" >
+      
+      <label class="md-nav__link" for="__nav_4_3">
+        Onboarding
+        <span class="md-nav__icon md-icon"></span>
+      </label>
+      <nav class="md-nav" aria-label="Onboarding" data-md-level="2">
+        <label class="md-nav__title" for="__nav_4_3">
+          <span class="md-nav__icon md-icon"></span>
+          Onboarding
+        </label>
+        <ul class="md-nav__list" data-md-scrollfix>
+          
+            
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../onboarding/" class="md-nav__link">
+        Introduction
+      </a>
+    </li>
+  
+
+          
+            
+  
+  
+  
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+      
+        <input class="md-nav__toggle md-toggle" data-md-toggle="__nav_4_3_2" type="checkbox" id="__nav_4_3_2" >
+      
+      <label class="md-nav__link" for="__nav_4_3_2">
+        Varcade Games
+        <span class="md-nav__icon md-icon"></span>
+      </label>
+      <nav class="md-nav" aria-label="Varcade Games" data-md-level="3">
+        <label class="md-nav__title" for="__nav_4_3_2">
+          <span class="md-nav__icon md-icon"></span>
+          Varcade Games
+        </label>
+        <ul class="md-nav__list" data-md-scrollfix>
+          
+            
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../onboarding/varcade_games/intro_client/" class="md-nav__link">
+        Introduction
+      </a>
+    </li>
+  
+
+          
+            
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../onboarding/varcade_games/system_architecture/" class="md-nav__link">
+        System Architecture
+      </a>
+    </li>
+  
+
+          
+            
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../onboarding/varcade_games/reverse_engineering/" class="md-nav__link">
+        Reverse Engineering
+      </a>
+    </li>
+  
+
+          
+            
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../onboarding/varcade_games/making_changes/" class="md-nav__link">
+        Making Changes
+      </a>
+    </li>
+  
+
+          
+            
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../onboarding/varcade_games/tests_and_linters/" class="md-nav__link">
+        Tests and Linters
+      </a>
+    </li>
+  
+
+          
+        </ul>
+      </nav>
+    </li>
+  
+
+          
+            
+  
+  
+  
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+      
+        <input class="md-nav__toggle md-toggle" data-md-toggle="__nav_4_3_3" type="checkbox" id="__nav_4_3_3" >
+      
+      <label class="md-nav__link" for="__nav_4_3_3">
+        Plugging in games
+        <span class="md-nav__icon md-icon"></span>
+      </label>
+      <nav class="md-nav" aria-label="Plugging in games" data-md-level="3">
+        <label class="md-nav__title" for="__nav_4_3_3">
+          <span class="md-nav__icon md-icon"></span>
+          Plugging in games
+        </label>
+        <ul class="md-nav__list" data-md-scrollfix>
+          
+            
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../onboarding/varcade_games/intro_server/" class="md-nav__link">
+        Introduction
+      </a>
+    </li>
+  
+
+          
+            
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../onboarding/varcade_games/admin/" class="md-nav__link">
+        The Admin panel
+      </a>
+    </li>
+  
+
+          
+            
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../onboarding/varcade_games/embedding_games/" class="md-nav__link">
+        Embedding games
+      </a>
+    </li>
+  
+
+          
+            
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../onboarding/varcade_games/matchmaker/" class="md-nav__link">
+        The Matchmaker
+      </a>
+    </li>
+  
+
+          
+        </ul>
+      </nav>
+    </li>
+  
+
+          
+            
+  
+  
+  
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+      
+        <input class="md-nav__toggle md-toggle" data-md-toggle="__nav_4_3_4" type="checkbox" id="__nav_4_3_4" >
+      
+      <label class="md-nav__link" for="__nav_4_3_4">
+        The Game Client
+        <span class="md-nav__icon md-icon"></span>
+      </label>
+      <nav class="md-nav" aria-label="The Game Client" data-md-level="3">
+        <label class="md-nav__title" for="__nav_4_3_4">
+          <span class="md-nav__icon md-icon"></span>
+          The Game Client
+        </label>
+        <ul class="md-nav__list" data-md-scrollfix>
+          
+            
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../onboarding/rps_game/intro/" class="md-nav__link">
+        Introduction
+      </a>
+    </li>
+  
+
+          
+            
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../onboarding/rps_game/working_with_the_game/" class="md-nav__link">
+        Working with Rock Paper Scissors Apocalypse
+      </a>
+    </li>
+  
+
+          
+            
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../onboarding/rps_game/key_concepts/" class="md-nav__link">
+        Key Concepts
+      </a>
+    </li>
+  
+
+          
+            
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../onboarding/rps_game/single_player_mode/" class="md-nav__link">
+        Single player
+      </a>
+    </li>
+  
+
+          
+            
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../onboarding/rps_game/the_game_engine/" class="md-nav__link">
+        The Game Engine
+      </a>
+    </li>
+  
+
+          
+            
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../onboarding/rps_game/game_design/" class="md-nav__link">
+        Game Design
+      </a>
+    </li>
+  
+
+          
+        </ul>
+      </nav>
+    </li>
+  
+
+          
+            
+  
+  
+  
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+      
+        <input class="md-nav__toggle md-toggle" data-md-toggle="__nav_4_3_5" type="checkbox" id="__nav_4_3_5" >
+      
+      <label class="md-nav__link" for="__nav_4_3_5">
+        The Game Server
+        <span class="md-nav__icon md-icon"></span>
+      </label>
+      <nav class="md-nav" aria-label="The Game Server" data-md-level="3">
+        <label class="md-nav__title" for="__nav_4_3_5">
+          <span class="md-nav__icon md-icon"></span>
+          The Game Server
+        </label>
+        <ul class="md-nav__list" data-md-scrollfix>
+          
+            
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../onboarding/rps_game_server/intro/" class="md-nav__link">
+        Introduction
+      </a>
+    </li>
+  
+
+          
+            
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../onboarding/rps_game_server/playing_with_others/" class="md-nav__link">
+        Playing with Others
+      </a>
+    </li>
+  
+
+          
+            
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../onboarding/rps_game_server/key_concepts/" class="md-nav__link">
+        Key Concepts
+      </a>
+    </li>
+  
+
+          
+            
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../onboarding/rps_game_server/system_design/" class="md-nav__link">
+        System Design
+      </a>
+    </li>
+  
+
+          
+            
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../onboarding/rps_game_server/the_game_engine/" class="md-nav__link">
+        The Game Engine
+      </a>
+    </li>
+  
+
+          
+        </ul>
+      </nav>
+    </li>
+  
+
+          
+            
+  
+  
+  
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+      
+        <input class="md-nav__toggle md-toggle" data-md-toggle="__nav_4_3_6" type="checkbox" id="__nav_4_3_6" >
+      
+      <label class="md-nav__link" for="__nav_4_3_6">
+        Backend Services
+        <span class="md-nav__icon md-icon"></span>
+      </label>
+      <nav class="md-nav" aria-label="Backend Services" data-md-level="3">
+        <label class="md-nav__title" for="__nav_4_3_6">
+          <span class="md-nav__icon md-icon"></span>
+          Backend Services
+        </label>
+        <ul class="md-nav__list" data-md-scrollfix>
+          
+            
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../onboarding/backend/intro/" class="md-nav__link">
+        Introduction
+      </a>
+    </li>
+  
+
+          
+            
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../onboarding/backend/matchmaker/" class="md-nav__link">
+        The Matchmaker
+      </a>
+    </li>
+  
+
+          
+            
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../onboarding/backend/working_with_matchmaker/" class="md-nav__link">
+        Working with the Matchmaker
+      </a>
+    </li>
+  
+
+          
+            
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../onboarding/backend/workers/" class="md-nav__link">
+        The Workers
+      </a>
+    </li>
+  
+
+          
+            
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../onboarding/backend/stats_tracker/" class="md-nav__link">
+        The Stats Tracker
+      </a>
+    </li>
+  
+
+          
+        </ul>
+      </nav>
+    </li>
+  
+
+          
+            
+  
+  
+  
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+      
+        <input class="md-nav__toggle md-toggle" data-md-toggle="__nav_4_3_7" type="checkbox" id="__nav_4_3_7" >
+      
+      <label class="md-nav__link" for="__nav_4_3_7">
+        Instrumentation
+        <span class="md-nav__icon md-icon"></span>
+      </label>
+      <nav class="md-nav" aria-label="Instrumentation" data-md-level="3">
+        <label class="md-nav__title" for="__nav_4_3_7">
+          <span class="md-nav__icon md-icon"></span>
+          Instrumentation
+        </label>
+        <ul class="md-nav__list" data-md-scrollfix>
+          
+            
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../onboarding/instrumentation/intro/" class="md-nav__link">
+        Introduction
+      </a>
+    </li>
+  
+
+          
+            
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../onboarding/instrumentation/grafana/" class="md-nav__link">
+        Setting up Grafana
+      </a>
+    </li>
+  
+
+          
+            
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../onboarding/instrumentation/load_test/" class="md-nav__link">
+        Running a load test
+      </a>
+    </li>
+  
+
+          
+        </ul>
+      </nav>
+    </li>
+  
+
+          
+            
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../onboarding/closing_words/" class="md-nav__link">
+        Next Steps
+      </a>
+    </li>
+  
+
+          
+        </ul>
+      </nav>
+    </li>
+  
+
+          
+            
+  
+  
+  
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+      
+        <input class="md-nav__toggle md-toggle" data-md-toggle="__nav_4_4" type="checkbox" id="__nav_4_4" >
+      
+      <label class="md-nav__link" for="__nav_4_4">
+        Hands-on Tasks
+        <span class="md-nav__icon md-icon"></span>
+      </label>
+      <nav class="md-nav" aria-label="Hands-on Tasks" data-md-level="2">
+        <label class="md-nav__title" for="__nav_4_4">
+          <span class="md-nav__icon md-icon"></span>
+          Hands-on Tasks
+        </label>
+        <ul class="md-nav__list" data-md-scrollfix>
+          
+            
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../tasks/overview/" class="md-nav__link">
+        How It Works
+      </a>
+    </li>
+  
+
+          
+            
+  
+  
+  
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+      
+        <input class="md-nav__toggle md-toggle" data-md-toggle="__nav_4_4_2" type="checkbox" id="__nav_4_4_2" >
+      
+      <label class="md-nav__link" for="__nav_4_4_2">
+        Junior
+        <span class="md-nav__icon md-icon"></span>
+      </label>
+      <nav class="md-nav" aria-label="Junior" data-md-level="3">
+        <label class="md-nav__title" for="__nav_4_4_2">
+          <span class="md-nav__icon md-icon"></span>
+          Junior
+        </label>
+        <ul class="md-nav__list" data-md-scrollfix>
+          
+            
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../tasks/junior/001_keyboard_login/" class="md-nav__link">
+        Keyboard Shortcuts
+      </a>
+    </li>
+  
+
+          
+            
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../tasks/junior/002_skip_cutscene/" class="md-nav__link">
+        Skip, Skip Skip
+      </a>
+    </li>
+  
+
+          
+            
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../tasks/junior/003_build_tools/" class="md-nav__link">
+        Build Tools
+      </a>
+    </li>
+  
+
+          
+        </ul>
+      </nav>
+    </li>
+  
+
+          
+            
+  
+  
+  
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+      
+        <input class="md-nav__toggle md-toggle" data-md-toggle="__nav_4_4_3" type="checkbox" id="__nav_4_4_3" >
+      
+      <label class="md-nav__link" for="__nav_4_4_3">
+        Mid
+        <span class="md-nav__icon md-icon"></span>
+      </label>
+      <nav class="md-nav" aria-label="Mid" data-md-level="3">
+        <label class="md-nav__title" for="__nav_4_4_3">
+          <span class="md-nav__icon md-icon"></span>
+          Mid
+        </label>
+        <ul class="md-nav__list" data-md-scrollfix>
+          
+            
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../tasks/mid/000_error_handling/" class="md-nav__link">
+        Error Handling
+      </a>
+    </li>
+  
+
+          
+            
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../tasks/mid/001_game_settings/" class="md-nav__link">
+        Settings Menu
+      </a>
+    </li>
+  
+
+          
+        </ul>
+      </nav>
+    </li>
+  
+
+          
+            
+  
+  
+  
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+      
+        <input class="md-nav__toggle md-toggle" data-md-toggle="__nav_4_4_4" type="checkbox" id="__nav_4_4_4" >
+      
+      <label class="md-nav__link" for="__nav_4_4_4">
+        Senior
+        <span class="md-nav__icon md-icon"></span>
+      </label>
+      <nav class="md-nav" aria-label="Senior" data-md-level="3">
+        <label class="md-nav__title" for="__nav_4_4_4">
+          <span class="md-nav__icon md-icon"></span>
+          Senior
+        </label>
+        <ul class="md-nav__list" data-md-scrollfix>
+          
+            
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../tasks/senior/000_per_round_stats/" class="md-nav__link">
+        Per Round Stats
+      </a>
+    </li>
+  
+
+          
+            
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../tasks/senior/001_deduplication/" class="md-nav__link">
+        Deduplication
+      </a>
+    </li>
+  
+
+          
+        </ul>
+      </nav>
+    </li>
+  
+
+          
+            
+  
+  
+  
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+      
+        <input class="md-nav__toggle md-toggle" data-md-toggle="__nav_4_4_5" type="checkbox" id="__nav_4_4_5" >
+      
+      <label class="md-nav__link" for="__nav_4_4_5">
+        Principle
+        <span class="md-nav__icon md-icon"></span>
+      </label>
+      <nav class="md-nav" aria-label="Principle" data-md-level="3">
+        <label class="md-nav__title" for="__nav_4_4_5">
+          <span class="md-nav__icon md-icon"></span>
+          Principle
+        </label>
+        <ul class="md-nav__list" data-md-scrollfix>
+          
+            
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../tasks/principle/001_async_node/" class="md-nav__link">
+        Async Game Server
+      </a>
+    </li>
+  
+
+          
+        </ul>
+      </nav>
+    </li>
+  
+
+          
+        </ul>
+      </nav>
+    </li>
+  
+
+          
+        </ul>
+      </nav>
+    </li>
+  
+
+    
+  </ul>
+</nav>
+                  </div>
+                </div>
+              </div>
+            
+            
+              
+              <div class="md-sidebar md-sidebar--secondary" data-md-component="sidebar" data-md-type="toc" >
+                <div class="md-sidebar__scrollwrap">
+                  <div class="md-sidebar__inner">
+                    
+<nav class="md-nav md-nav--secondary" aria-label="Table of contents">
+  
+  
+  
+    
+  
+  
+    <label class="md-nav__title" for="__toc">
+      <span class="md-nav__icon md-icon"></span>
+      Table of contents
+    </label>
+    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#hardware" class="md-nav__link">
+    Hardware
+  </a>
+  
+    <nav class="md-nav" aria-label="Hardware">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#cpu" class="md-nav__link">
+    CPU
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#bits-and-bytes" class="md-nav__link">
+    Bits and Bytes
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#software" class="md-nav__link">
+    Software
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#final-thoughts" class="md-nav__link">
+    Final Thoughts
+  </a>
+  
+</li>
+      
+    </ul>
+  
+</nav>
+                  </div>
+                </div>
+              </div>
+            
+          
+          <div class="md-content" data-md-component="content">
+            <article class="md-content__inner md-typeset">
+              
+                
+                
+                <h1 id="hardware-vs-software">Hardware VS. Software</h1>
+<h2 id="hardware">Hardware</h2>
+<p>Now that we are more familiar with the anatomy of our robot and how to program it we should stop to look at some more common computer terms that are useful to know and various different types of software. </p>
+<p>In the last section we talked about our CPU, RAM and harddrive. These components are known as hardware. The word ‘hardware’ is used to describe all physical components of a computer, including our mouse, keyboard, monitor and graphics/sound cards. </p>
+<p>When it comes to hardware, people will generally be most interested in the CPU, RAM and graphics card. Knowing the specifications of these pieces of hardware is enough to tell us how fast we can expect the computer to run as well as how many programs it can handle running simultaneously before it starts to slow down and become unresponsive. </p>
+<h3 id="cpu">CPU</h3>
+<p>We briefly mentioned CPU performance earlier and used the word ‘gigahertz’. This word is actually composed to two words, the second being the most interesting: hertz. This is a word commonly used in physics and engineering and simply means ‘cycles per second’ or ‘frequency’. </p>
+<p>If you look at an ordinary clock, the seconds hand ticks once every second, so it could be said that it is running at 1 hertz. If you have any experience with music theory you will be familiar with the measure of beats per minute, which is a similar concept. If you use public transport and your bus comes once every hour, you could call that the frequency of your bus - or buses per hour. </p>
+<p>In fact we can invent a new unit of measurement right now: ‘Burtz’, which means buses per hour. The bus that I take every day runs at a frequency of 3 burtz, meaning three of them come within the space of an hour. I would have to wait around less if that frequency was increased. If the buses ran at 12 burtz it would mean there would be one every five minutes, which would be great! </p>
+<p>Back to our CPU and its ‘cycles per second’. For simplicity sake, lets think of a cycle as being the execution of a single instruction. So earlier on when we said our CPU transferred our sandwich program from the hard drive to RAM, this would have been millions of operations. Which means that it’s a good thing that the first part of the word ‘gigahertz’ means ‘billions’. </p>
+<p>So then we say our CPU is running at ‘2 gigahertz’ it means that it can perform a whopping 2 billion operations every second! Remember this the next time you get angry at your computer. That poor little processor is working incredibly hard trying to keep up with the demands of modern software. Each program running on your computer is like an angry customer in a packed restaurant shouting at a single waiter who is struggling to keep up with their orders.</p>
+<h3 id="bits-and-bytes">Bits and Bytes</h3>
+<p>When it comes to memory and storage we used a different word: ‘gigabytes’, or ‘gigs of RAM’. The ‘giga’ in this word means the same thing but the ‘bytes’ is very different. You may have guessed that ‘gigabytes’ means ‘billions of bytes’, and if so then you guessed correctly. </p>
+<p>But what is a byte? </p>
+<p>Answering that question requires that we look at something called a ‘bit’ first. A ‘bit’ in computing is the smallest unit of information that a computer can work with. </p>
+<p>When thinking about human language, the smallest unit of information would be a letter. Words are made of letters, sentences of words, paragraphs of sentences, chapters of paragraphs and books of chapters. Letters aren’t composed of anything else like sentences, paragraphs and chapters are. We can’t break down a letter any further. </p>
+<p>A bit is to a computer what a single letter is to natural language. On it’s own a letter cannot do much, but once we start creating sequences of letters we end up with books that contain huge amounts of information. In computing we do the same with bits. </p>
+<p>In the English alphabet there are 26 letters, but for a computer’s alphabet there are only two bits: 1 and 0. A byte is just a sequence of eight of these bits. </p>
+<p>So one gigabyte is one billion bytes, which is actually eight billion bits. Don't worry about why we chose 8 bits for now, just know that it's a good number of computers.</p>
+<p>So how does a computer that stores a bunch of bits manage to display text and images to us? Well that is actually pretty simple. </p>
+<p>We use certain sequences of bits to represent things. A computer may represent the letter ‘A’ using this sequence of bits: ‘01000001’. So in our RAM if we want to store the letter ‘A’ we will use that sequence, which uses up 8 bits of the billions of bits available to us. </p>
+<p>To illustrate this point let’s imagine we are back in school. You are sitting in a particularly boring class and want to pass a note to your friend. You have been caught doing this before so you and your friend set up a code where you use bits to represent letters, this way your teacher won’t know what you are saying if you get caught again:</p>
+<table cellspacing="3" >
+    <tr>
+        <td>A</td>
+        <td>01000001</td>
+        <td>N</td>
+        <td>01001110</td>
+    </tr>
+    <tr>
+        <td>B</td>
+        <td>01000010</td>
+        <td>O</td>
+        <td>01001111</td>
+    </tr>
+    <tr>
+        <td>C</td>
+        <td>01000011</td>
+        <td>P</td>
+        <td>01010000</td>
+    </tr>
+    <tr>
+        <td>D</td>
+        <td>01000100</td>
+        <td>Q</td>
+        <td>01010001</td>
+    </tr>
+    <tr>
+        <td>E</td>
+        <td>01000101</td>
+        <td>R</td>
+        <td>01010010</td>
+    </tr>
+    <tr>
+        <td>F</td>
+        <td>01000110</td>
+        <td>S</td>
+        <td>01010011</td>
+    </tr>
+    <tr>
+        <td>G</td>
+        <td>01000111</td>
+        <td>T</td>
+        <td>01010100</td>
+    </tr>
+    <tr>
+        <td>H</td>
+        <td>01001000</td>
+        <td>U</td>
+        <td>01010101</td>
+    </tr>
+    <tr>
+        <td>I</td>
+        <td>01001001</td>
+        <td>V</td>
+        <td>01010110</td>
+    </tr>
+    <tr>
+        <td>J</td>
+        <td>01001010</td>
+        <td>W</td>
+        <td>01010111</td>
+    </tr>
+    <tr>
+        <td>K</td>
+        <td>01001011</td>
+        <td>X</td>
+        <td>01011000</td>
+    </tr>
+    <tr>
+        <td>L</td>
+        <td>01001100</td>
+        <td>Y</td>
+        <td>01011001</td>
+    </tr>
+    <tr>
+        <td>M</td>
+        <td>01001101</td>
+        <td>Z</td>
+        <td>01011010</td>
+    </tr>
+
+</table>
+
+<p>As we can see, each letter of the alphabet is represented by a unique sequence of bits. </p>
+<p>To test your system you start by writing the most basic message you can think of: “Hello”. Substituting each letter in the word hello for the bits in the above table we get this:</p>
+<p>01001000 01000101 01001100 01001100 01001111</p>
+<p>It’s perfect! No one will be able to read our message unless they know that you have to take a sequence of eight bits and convert it to a letter before you move on to the next eight bits. </p>
+<p>Your friend knows that each group of eight bits represents a letter so they simply need to take each ‘byte’ and look it up in the table above. </p>
+<p>This sequence of bits is exactly how a computer would store that word in its memory. And while this is very time consuming for humans to read and work with, the same is not true for a computer. In fact, using modern RAM, a computer can transfer up to 20 billion of these bytes to and from RAM every second! </p>
+<p>A computer will store your images, music, videos and text files in the same way. The programs you use every day know how to read that information and display it on your monitor in a way that you understand, just like our friend was able to take our message and use the table of letters to figure out exactly what it said. </p>
+<p>You may now be thinking that the programs that allow us to watch videos and look at pictures must be insanely complex! Well the answer is yes and in fact it is probably even more complex than you think, so let’s take a closer look at the world of software.</p>
+<h2 id="software">Software</h2>
+<p>Earlier on we created a sandwich making program for our robot. This is software. It is not a physical thing that we can touch like our hardware. </p>
+<p>Even though we only wrote one program for our robot, this does not mean that it only has one program to run. Our robot already knew how to walk so it must have had a program for that. It was also able to enter training mode when we told it to, so training mode must be another program. </p>
+<p>We also learned that in order to run our program it had to transfer that program from its harddrive to its RAM, so it needed a program to do that too. </p>
+<p>The software that manages all of these basic but crucial functions of our robot is known as the operating system, or OS.</p>
+<p>You will most likely be familiar with at least one operating system. If you use a computer it is likely running either Windows (on a PC) or OSX (on a Mac). There are many more operating systems (you may have heard of Linux), but Windows and OSX are by far the most common in consumer computing. </p>
+<p>At the time of writing this, if you have a smartphone chances are it is either an iPhone or an Android phone. IOS is the operating system that runs on an iPhone and Android is an operating system that many different companies use on their smartphones (Samsung, LG, Motorola, HTC etc…).</p>
+<p>When you turn on your computer or phone or tablet you are starting the OS. This is a very complex piece of software that manages all of the information stored on your harddrive, how it is transferred to and from RAM and how all of this information is displayed on your screen. It is not one single program but a collection of programs that work together to allow you to use your computer. </p>
+<p>When you create your own program, like our sandwich making one, you are working within the bounds of the OS. This means you may be limited in what you can actually do based on the OS. If you write a program for an iPhone, for example, the OS will not let your program access other programs. If it did I could easily write an app that looks at all of your private emails and message. </p>
+<p>The OS will keep the apps isolated from each other for security reasons. </p>
+<p>Most operating systems will also come with some utility programs installed, such as a web browser for accessing the internet, a calculator, a video player and a music player. These are often created by the same company that built the OS, but aren’t a core component of the OS itself. </p>
+<p>On top of that you have what would be known as ‘third party software’. This is software that is created by people or companies that are independent of the OS manufacturer. If you play games on your computer or phone they were most likely made by a third party and had to be built specifically to run on the device you are playing it on. </p>
+<p>This sort of software needs to be installed on your computer. Installation is simply the act of copying the software from some external location to your hard drive. Traditionally this was done using things like CDs, DVDs or floppy disks (some readers may not be old enough to remember floppy disks, but they did not hold very much information and you often needed several of them to install a single program). </p>
+<p>More recently the trend has moved towards downloading and installing programs from the internet. If you have ever installed an app from your phone then you have done this. </p>
+<p>In order for software to exist we need hardware and hardware without software is all but useless. It is a symbiotic relationship where both components depend entirely on eachother. </p>
+<p>As the software we build gets more and more complex this relationship is put under more and more strain as we push the hardware to its limits. Computer games are the perfect example of this. Games have gone from simple 2D boxes and basic sounds to photorealistic 3D worlds with amazing sound effects in a remarkably short period of time. Graphics programmers have been pushing the limits of hardware for decades. </p>
+<p>We have also made computers far more accessible than they ever were before. Most people today wouldn’t even know how to begin interacting with a computer from the 1980s, so it is very clear that we have come a long long way. Just look at smartphones. They are computers, but the barrier to entry is a lot lower. Children and adults alike can pick one up and intuitively understand how to use it.</p>
+<h2 id="final-thoughts">Final Thoughts</h2>
+<p>I hope that this has helped you to understand what is going on inside that magic little box that lets you go online and watch videos, or chat with friends while buying new clothes and accessories. </p>
+<p>You will hopefully have also learned why working with computers can be very challenging and that software engineers have a tough job to do. I am also hoping that the next time you are faced with a frustrating situation you will be better prepared to actually do something about it. If your computer is running slow it is likely doing too much. If something is not working as expected you may have found a bug. </p>
+<p>Next we should look a little more closely at what happens when we connect computers together. You likely use the internet on a near daily basis, so that is what we will talk about next.</p>
+                
+              
+              
+                
+
+
+              
+            </article>
+          </div>
+        </div>
+        
+      </main>
+      
+        
+<footer class="md-footer">
+  
+  <div class="md-footer-meta md-typeset">
+    <div class="md-footer-meta__inner md-grid">
+      <div class="md-footer-copyright">
+        
+        Made with
+        <a href="https://squidfunk.github.io/mkdocs-material/" target="_blank" rel="noopener">
+          Material for MkDocs
+        </a>
+        
+      </div>
+      
+    </div>
+  </div>
+</footer>
+      
+    </div>
+    <div class="md-dialog" data-md-component="dialog">
+      <div class="md-dialog__inner md-typeset"></div>
+    </div>
+    <script id="__config" type="application/json">{"base": "../..", "features": [], "translations": {"clipboard.copy": "Copy to clipboard", "clipboard.copied": "Copied to clipboard", "search.config.lang": "en", "search.config.pipeline": "trimmer, stopWordFilter", "search.config.separator": "[\\s\\-]+", "search.placeholder": "Search", "search.result.placeholder": "Type to start searching", "search.result.none": "No matching documents", "search.result.one": "1 matching document", "search.result.other": "# matching documents", "search.result.more.one": "1 more on this page", "search.result.more.other": "# more on this page", "search.result.term.missing": "Missing", "select.version.title": "Select version"}, "search": "../../assets/javascripts/workers/search.477d984a.min.js", "version": null}</script>
+    
+    
+      <script src="../../assets/javascripts/bundle.82b56eb2.min.js"></script>
+      
+    
+  </body>
+</html>
