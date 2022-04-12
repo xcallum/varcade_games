@@ -19,7 +19,8 @@
 
 		"mainMenu": {
 			"images": {
-				"mainMenuBg": "backgrounds/main_menu.png"
+				"mainMenuBg": "backgrounds/main_menu.png",
+				"particle": "effects/particle.png"
 			}
 		},
 

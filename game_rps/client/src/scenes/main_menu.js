@@ -16,6 +16,7 @@ class MainMenuScene extends Phaser.Scene {
   constructor () {
     super({ key: 'MainMenuScene' })
     this.menuHighlightIconIndex = 0
+    this.particles = [];
   }
 
   init (data) {
@@ -33,6 +34,14 @@ class MainMenuScene extends Phaser.Scene {
     ).setOrigin(
       bgLayout.originX, bgLayout.originY
     )
+
+    for (let i = 0; i < 75; i++) {
+      const x = Phaser.Math.Between(-64, 960);
+      const y = Phaser.Math.Between(640, 1200);
+      const image = this.add.image(x, y, 'particle').setAlpha(0.5).setScale(1.5);
+      image.setBlendMode(Phaser.BlendModes.ADD);
+      this.particles.push({ s: image, r: Math.random() * 2 });
+    }
 
     /**
       SINGLE PLAYER SELECT
@@ -123,6 +132,16 @@ class MainMenuScene extends Phaser.Scene {
         this.error.message,
         'Close'
       )
+    }
+  }
+
+  update () {
+    for (let i = 0; i < this.particles.length; i++) {
+        const sprite = this.particles[i].s;
+        sprite.y -= this.particles[i].r;
+        if (sprite.y < -256) {
+            sprite.y = 700;
+        }
     }
   }
 
