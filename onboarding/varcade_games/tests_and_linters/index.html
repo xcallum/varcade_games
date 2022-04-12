@@ -1390,6 +1390,18 @@
   
 
           
+            
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../tasks/junior/004_error_handling/" class="md-nav__link">
+        Error Handling
+      </a>
+    </li>
+  
+
+          
         </ul>
       </nav>
     </li>
@@ -1416,18 +1428,6 @@
           Mid
         </label>
         <ul class="md-nav__list" data-md-scrollfix>
-          
-            
-  
-  
-  
-    <li class="md-nav__item">
-      <a href="../../../tasks/mid/000_error_handling/" class="md-nav__link">
-        Error Handling
-      </a>
-    </li>
-  
-
           
             
   
@@ -1631,7 +1631,12 @@
 <table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal">1</span></pre></div></td><td class="code"><div class="highlight"><pre><span></span><code><span class="nb">cd</span> ~/code/varcade_games/website/client
 </code></pre></div>
 </td></tr></table>
-<p>From there you can run:</p>
+<p>Next we need to install some additional dependencies. Specifically <code>npm</code>, which is the <a href="https://www.npmjs.com/">Node Package Manager</a>. This is a tool that allows you to install libraries that you can use to build your own applications (for example, Vue.js). For installation instructions check out <a href="https://docs.npmjs.com/cli/">their official docs</a>.</p>
+<p>After the installation complete you can run the following command to actually install all of the project dependencies:</p>
+<table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal">1</span></pre></div></td><td class="code"><div class="highlight"><pre><span></span><code>npm install
+</code></pre></div>
+</td></tr></table>
+<p>Once that is done you can run:</p>
 <table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal">1</span></pre></div></td><td class="code"><div class="highlight"><pre><span></span><code>npm run lint
 </code></pre></div>
 </td></tr></table>
@@ -1794,7 +1799,7 @@ npm ERR!     /tmp/.npm/_logs/2021-08-17T19_27_20_052Z-debug.log
 <p>(Ok there might be a few warnings... but the tests should pass!)</p>
 <p>These tests test the functionality of the game portal - they tell us if something functional broke.</p>
 <p>So let's break something...</p>
-<p>Open up <code>website/server/tests/game_portal/games/test_games.py</code>.</p>
+<p>Open up <code>website/server/tests/game_portal/games/test_accounts.py</code>.</p>
 <p>Find the test called <code>test_create_user_with_short_password</code>.</p>
 <p>This test case verifies that the server returns an error status if a user submits a password that is too short. </p>
 <p>In this case we expect and error to occur, so we have this assertion:</p>
