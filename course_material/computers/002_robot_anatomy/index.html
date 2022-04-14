@@ -1,0 +1,1686 @@
+
+<!doctype html>
+<html lang="en" class="no-js">
+  <head>
+    
+      <meta charset="utf-8">
+      <meta name="viewport" content="width=device-width,initial-scale=1">
+      
+      
+      
+      
+        <link rel="canonical" href="https://codeovertime.com/course_material/computers/002_robot_anatomy/">
+      
+      <link rel="icon" href="../../../img/logo.png">
+      <meta name="generator" content="mkdocs-1.2.1, mkdocs-material-7.1.9">
+    
+    
+      
+        <title>Robot Anatomy - Code Over Time [ALPHA]</title>
+      
+    
+    
+      <link rel="stylesheet" href="../../../assets/stylesheets/main.ca7ac06f.min.css">
+      
+        
+        <link rel="stylesheet" href="../../../assets/stylesheets/palette.f1a3b89f.min.css">
+        
+      
+    
+    
+    
+      
+        
+        <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+        <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Roboto:300,400,400i,700%7CRoboto+Mono&display=fallback">
+        <style>:root{--md-text-font-family:"Roboto";--md-code-font-family:"Roboto Mono"}</style>
+      
+    
+    
+    
+    
+      
+
+
+    
+    
+  </head>
+  
+  
+    
+    
+      
+    
+    
+    
+    
+    <body dir="ltr" data-md-color-scheme="default" data-md-color-primary="black" data-md-color-accent="">
+  
+    
+    <script>function __prefix(e){return new URL("../../..",location).pathname+"."+e}function __get(e,t=localStorage){return JSON.parse(t.getItem(__prefix(e)))}</script>
+    
+      <script>var palette=__get("__palette");if(null!==palette&&"object"==typeof palette.color)for(var key in palette.color)document.body.setAttribute("data-md-color-"+key,palette.color[key])</script>
+    
+    <input class="md-toggle" data-md-toggle="drawer" type="checkbox" id="__drawer" autocomplete="off">
+    <input class="md-toggle" data-md-toggle="search" type="checkbox" id="__search" autocomplete="off">
+    <label class="md-overlay" for="__drawer"></label>
+    <div data-md-component="skip">
+      
+        
+        <a href="#robot-anatomy" class="md-skip">
+          Skip to content
+        </a>
+      
+    </div>
+    <div data-md-component="announce">
+      
+    </div>
+    
+      <header class="md-header" data-md-component="header">
+  <nav class="md-header__inner md-grid" aria-label="Header">
+    <a href="../../.." title="Code Over Time [ALPHA]" class="md-header__button md-logo" aria-label="Code Over Time [ALPHA]" data-md-component="logo">
+      
+  <img src="../../../img/logo.png" alt="logo">
+
+    </a>
+    <label class="md-header__button md-icon" for="__drawer">
+      <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M3 6h18v2H3V6m0 5h18v2H3v-2m0 5h18v2H3v-2z"/></svg>
+    </label>
+    <div class="md-header__title" data-md-component="header-title">
+      <div class="md-header__ellipsis">
+        <div class="md-header__topic">
+          <span class="md-ellipsis">
+            Code Over Time [ALPHA]
+          </span>
+        </div>
+        <div class="md-header__topic" data-md-component="header-topic">
+          <span class="md-ellipsis">
+            
+              Robot Anatomy
+            
+          </span>
+        </div>
+      </div>
+    </div>
+    
+      <form class="md-header__option" data-md-component="palette">
+        
+          
+          
+          <input class="md-option" data-md-color-media="" data-md-color-scheme="default" data-md-color-primary="black" data-md-color-accent=""  aria-label="Dark mode"  type="radio" name="__palette" id="__palette_1">
+          
+            <label class="md-header__button md-icon" title="Dark mode" for="__palette_2" hidden>
+              <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M7 10a2 2 0 0 1 2 2 2 2 0 0 1-2 2 2 2 0 0 1-2-2 2 2 0 0 1 2-2m10-3a5 5 0 0 1 5 5 5 5 0 0 1-5 5H7a5 5 0 0 1-5-5 5 5 0 0 1 5-5h10M7 9a3 3 0 0 0-3 3 3 3 0 0 0 3 3h10a3 3 0 0 0 3-3 3 3 0 0 0-3-3H7z"/></svg>
+            </label>
+          
+        
+          
+          
+          <input class="md-option" data-md-color-media="" data-md-color-scheme="slate" data-md-color-primary="black" data-md-color-accent=""  aria-label="Light mode"  type="radio" name="__palette" id="__palette_2">
+          
+            <label class="md-header__button md-icon" title="Light mode" for="__palette_1" hidden>
+              <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M17 7H7a5 5 0 0 0-5 5 5 5 0 0 0 5 5h10a5 5 0 0 0 5-5 5 5 0 0 0-5-5m0 8a3 3 0 0 1-3-3 3 3 0 0 1 3-3 3 3 0 0 1 3 3 3 3 0 0 1-3 3z"/></svg>
+            </label>
+          
+        
+      </form>
+    
+    
+    
+      <label class="md-header__button md-icon" for="__search">
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M9.5 3A6.5 6.5 0 0 1 16 9.5c0 1.61-.59 3.09-1.56 4.23l.27.27h.79l5 5-1.5 1.5-5-5v-.79l-.27-.27A6.516 6.516 0 0 1 9.5 16 6.5 6.5 0 0 1 3 9.5 6.5 6.5 0 0 1 9.5 3m0 2C7 5 5 7 5 9.5S7 14 9.5 14 14 12 14 9.5 12 5 9.5 5z"/></svg>
+      </label>
+      
+<div class="md-search" data-md-component="search" role="dialog">
+  <label class="md-search__overlay" for="__search"></label>
+  <div class="md-search__inner" role="search">
+    <form class="md-search__form" name="search">
+      <input type="text" class="md-search__input" name="query" aria-label="Search" placeholder="Search" autocapitalize="off" autocorrect="off" autocomplete="off" spellcheck="false" data-md-component="search-query" data-md-state="active" required>
+      <label class="md-search__icon md-icon" for="__search">
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M9.5 3A6.5 6.5 0 0 1 16 9.5c0 1.61-.59 3.09-1.56 4.23l.27.27h.79l5 5-1.5 1.5-5-5v-.79l-.27-.27A6.516 6.516 0 0 1 9.5 16 6.5 6.5 0 0 1 3 9.5 6.5 6.5 0 0 1 9.5 3m0 2C7 5 5 7 5 9.5S7 14 9.5 14 14 12 14 9.5 12 5 9.5 5z"/></svg>
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M20 11v2H8l5.5 5.5-1.42 1.42L4.16 12l7.92-7.92L13.5 5.5 8 11h12z"/></svg>
+      </label>
+      <button type="reset" class="md-search__icon md-icon" aria-label="Clear" tabindex="-1">
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M19 6.41 17.59 5 12 10.59 6.41 5 5 6.41 10.59 12 5 17.59 6.41 19 12 13.41 17.59 19 19 17.59 13.41 12 19 6.41z"/></svg>
+      </button>
+    </form>
+    <div class="md-search__output">
+      <div class="md-search__scrollwrap" data-md-scrollfix>
+        <div class="md-search-result" data-md-component="search-result">
+          <div class="md-search-result__meta">
+            Initializing search
+          </div>
+          <ol class="md-search-result__list"></ol>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+    
+    
+  </nav>
+</header>
+    
+    <div class="md-container" data-md-component="container">
+      
+      
+        
+      
+      <main class="md-main" data-md-component="main">
+        <div class="md-main__inner md-grid">
+          
+            
+              
+              <div class="md-sidebar md-sidebar--primary" data-md-component="sidebar" data-md-type="navigation" >
+                <div class="md-sidebar__scrollwrap">
+                  <div class="md-sidebar__inner">
+                    
+
+
+<nav class="md-nav md-nav--primary" aria-label="Navigation" data-md-level="0">
+  <label class="md-nav__title" for="__drawer">
+    <a href="../../.." title="Code Over Time [ALPHA]" class="md-nav__button md-logo" aria-label="Code Over Time [ALPHA]" data-md-component="logo">
+      
+  <img src="../../../img/logo.png" alt="logo">
+
+    </a>
+    Code Over Time [ALPHA]
+  </label>
+  
+  <ul class="md-nav__list" data-md-scrollfix>
+    
+      
+      
+      
+
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../.." class="md-nav__link">
+        Welcome
+      </a>
+    </li>
+  
+
+    
+      
+      
+      
+
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../curriculum/" class="md-nav__link">
+        Curriculum
+      </a>
+    </li>
+  
+
+    
+      
+      
+      
+
+  
+  
+  
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+      
+        <input class="md-nav__toggle md-toggle" data-md-toggle="__nav_3" type="checkbox" id="__nav_3" >
+      
+      <label class="md-nav__link" for="__nav_3">
+        Reading Material
+        <span class="md-nav__icon md-icon"></span>
+      </label>
+      <nav class="md-nav" aria-label="Reading Material" data-md-level="1">
+        <label class="md-nav__title" for="__nav_3">
+          <span class="md-nav__icon md-icon"></span>
+          Reading Material
+        </label>
+        <ul class="md-nav__list" data-md-scrollfix>
+          
+            
+  
+  
+  
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+      
+        <input class="md-nav__toggle md-toggle" data-md-toggle="__nav_3_1" type="checkbox" id="__nav_3_1" >
+      
+      <label class="md-nav__link" for="__nav_3_1">
+        Systems
+        <span class="md-nav__icon md-icon"></span>
+      </label>
+      <nav class="md-nav" aria-label="Systems" data-md-level="2">
+        <label class="md-nav__title" for="__nav_3_1">
+          <span class="md-nav__icon md-icon"></span>
+          Systems
+        </label>
+        <ul class="md-nav__list" data-md-scrollfix>
+          
+            
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../reading_material/systems/" class="md-nav__link">
+        Introduction
+      </a>
+    </li>
+  
+
+          
+            
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../reading_material/systems/io/" class="md-nav__link">
+        Inputs & Outputs
+      </a>
+    </li>
+  
+
+          
+        </ul>
+      </nav>
+    </li>
+  
+
+          
+            
+  
+  
+  
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+      
+        <input class="md-nav__toggle md-toggle" data-md-toggle="__nav_3_2" type="checkbox" id="__nav_3_2" >
+      
+      <label class="md-nav__link" for="__nav_3_2">
+        Hardware
+        <span class="md-nav__icon md-icon"></span>
+      </label>
+      <nav class="md-nav" aria-label="Hardware" data-md-level="2">
+        <label class="md-nav__title" for="__nav_3_2">
+          <span class="md-nav__icon md-icon"></span>
+          Hardware
+        </label>
+        <ul class="md-nav__list" data-md-scrollfix>
+          
+            
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../reading_material/hardware/" class="md-nav__link">
+        Introduction
+      </a>
+    </li>
+  
+
+          
+            
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../reading_material/hardware/keyboards_and_mice/" class="md-nav__link">
+        Mouse & Keyboard
+      </a>
+    </li>
+  
+
+          
+        </ul>
+      </nav>
+    </li>
+  
+
+          
+            
+  
+  
+  
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+      
+        <input class="md-nav__toggle md-toggle" data-md-toggle="__nav_3_3" type="checkbox" id="__nav_3_3" >
+      
+      <label class="md-nav__link" for="__nav_3_3">
+        Software
+        <span class="md-nav__icon md-icon"></span>
+      </label>
+      <nav class="md-nav" aria-label="Software" data-md-level="2">
+        <label class="md-nav__title" for="__nav_3_3">
+          <span class="md-nav__icon md-icon"></span>
+          Software
+        </label>
+        <ul class="md-nav__list" data-md-scrollfix>
+          
+            
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../reading_material/software/" class="md-nav__link">
+        Introduction
+      </a>
+    </li>
+  
+
+          
+        </ul>
+      </nav>
+    </li>
+  
+
+          
+            
+  
+  
+  
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+      
+        <input class="md-nav__toggle md-toggle" data-md-toggle="__nav_3_4" type="checkbox" id="__nav_3_4" >
+      
+      <label class="md-nav__link" for="__nav_3_4">
+        Coding
+        <span class="md-nav__icon md-icon"></span>
+      </label>
+      <nav class="md-nav" aria-label="Coding" data-md-level="2">
+        <label class="md-nav__title" for="__nav_3_4">
+          <span class="md-nav__icon md-icon"></span>
+          Coding
+        </label>
+        <ul class="md-nav__list" data-md-scrollfix>
+          
+            
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../reading_material/coding/" class="md-nav__link">
+        Introduction
+      </a>
+    </li>
+  
+
+          
+            
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../reading_material/coding/languages/" class="md-nav__link">
+        Where to start
+      </a>
+    </li>
+  
+
+          
+        </ul>
+      </nav>
+    </li>
+  
+
+          
+        </ul>
+      </nav>
+    </li>
+  
+
+    
+      
+      
+      
+
+  
+  
+  
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+      
+        <input class="md-nav__toggle md-toggle" data-md-toggle="__nav_4" type="checkbox" id="__nav_4" >
+      
+      <label class="md-nav__link" for="__nav_4">
+        Your Internship
+        <span class="md-nav__icon md-icon"></span>
+      </label>
+      <nav class="md-nav" aria-label="Your Internship" data-md-level="1">
+        <label class="md-nav__title" for="__nav_4">
+          <span class="md-nav__icon md-icon"></span>
+          Your Internship
+        </label>
+        <ul class="md-nav__list" data-md-scrollfix>
+          
+            
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../internship/internship/" class="md-nav__link">
+        Overview
+      </a>
+    </li>
+  
+
+          
+            
+  
+  
+  
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+      
+        <input class="md-nav__toggle md-toggle" data-md-toggle="__nav_4_2" type="checkbox" id="__nav_4_2" >
+      
+      <label class="md-nav__link" for="__nav_4_2">
+        Getting Set Up
+        <span class="md-nav__icon md-icon"></span>
+      </label>
+      <nav class="md-nav" aria-label="Getting Set Up" data-md-level="2">
+        <label class="md-nav__title" for="__nav_4_2">
+          <span class="md-nav__icon md-icon"></span>
+          Getting Set Up
+        </label>
+        <ul class="md-nav__list" data-md-scrollfix>
+          
+            
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../internship/setup/" class="md-nav__link">
+        Introduction
+      </a>
+    </li>
+  
+
+          
+            
+  
+  
+  
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+      
+        <input class="md-nav__toggle md-toggle" data-md-toggle="__nav_4_2_2" type="checkbox" id="__nav_4_2_2" >
+      
+      <label class="md-nav__link" for="__nav_4_2_2">
+        Dev Environment
+        <span class="md-nav__icon md-icon"></span>
+      </label>
+      <nav class="md-nav" aria-label="Dev Environment" data-md-level="3">
+        <label class="md-nav__title" for="__nav_4_2_2">
+          <span class="md-nav__icon md-icon"></span>
+          Dev Environment
+        </label>
+        <ul class="md-nav__list" data-md-scrollfix>
+          
+            
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../internship/setup/environment_setup/intro/" class="md-nav__link">
+        Overview
+      </a>
+    </li>
+  
+
+          
+            
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../internship/setup/environment_setup/linux/" class="md-nav__link">
+        Linux
+      </a>
+    </li>
+  
+
+          
+            
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../internship/setup/environment_setup/windows/" class="md-nav__link">
+        Windows
+      </a>
+    </li>
+  
+
+          
+            
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../internship/setup/environment_setup/osx/" class="md-nav__link">
+        OSX
+      </a>
+    </li>
+  
+
+          
+            
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../internship/setup/environment_setup/testing_your_setup/" class="md-nav__link">
+        Testing your setup
+      </a>
+    </li>
+  
+
+          
+        </ul>
+      </nav>
+    </li>
+  
+
+          
+            
+  
+  
+  
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+      
+        <input class="md-nav__toggle md-toggle" data-md-toggle="__nav_4_2_3" type="checkbox" id="__nav_4_2_3" >
+      
+      <label class="md-nav__link" for="__nav_4_2_3">
+        Project Setup
+        <span class="md-nav__icon md-icon"></span>
+      </label>
+      <nav class="md-nav" aria-label="Project Setup" data-md-level="3">
+        <label class="md-nav__title" for="__nav_4_2_3">
+          <span class="md-nav__icon md-icon"></span>
+          Project Setup
+        </label>
+        <ul class="md-nav__list" data-md-scrollfix>
+          
+            
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../internship/setup/varcade_games/intro/" class="md-nav__link">
+        Varcade Games
+      </a>
+    </li>
+  
+
+          
+            
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../internship/setup/varcade_games/get_the_code/" class="md-nav__link">
+        Get the code
+      </a>
+    </li>
+  
+
+          
+            
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../internship/setup/varcade_games/running_vcg/" class="md-nav__link">
+        Running Varcade Games
+      </a>
+    </li>
+  
+
+          
+            
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../internship/setup/varcade_games/adding_a_game/" class="md-nav__link">
+        Adding a game
+      </a>
+    </li>
+  
+
+          
+        </ul>
+      </nav>
+    </li>
+  
+
+          
+            
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../internship/setup/next_steps/" class="md-nav__link">
+        Next Steps
+      </a>
+    </li>
+  
+
+          
+        </ul>
+      </nav>
+    </li>
+  
+
+          
+            
+  
+  
+  
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+      
+        <input class="md-nav__toggle md-toggle" data-md-toggle="__nav_4_3" type="checkbox" id="__nav_4_3" >
+      
+      <label class="md-nav__link" for="__nav_4_3">
+        Onboarding
+        <span class="md-nav__icon md-icon"></span>
+      </label>
+      <nav class="md-nav" aria-label="Onboarding" data-md-level="2">
+        <label class="md-nav__title" for="__nav_4_3">
+          <span class="md-nav__icon md-icon"></span>
+          Onboarding
+        </label>
+        <ul class="md-nav__list" data-md-scrollfix>
+          
+            
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../internship/onboarding/" class="md-nav__link">
+        Introduction
+      </a>
+    </li>
+  
+
+          
+            
+  
+  
+  
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+      
+        <input class="md-nav__toggle md-toggle" data-md-toggle="__nav_4_3_2" type="checkbox" id="__nav_4_3_2" >
+      
+      <label class="md-nav__link" for="__nav_4_3_2">
+        Varcade Games
+        <span class="md-nav__icon md-icon"></span>
+      </label>
+      <nav class="md-nav" aria-label="Varcade Games" data-md-level="3">
+        <label class="md-nav__title" for="__nav_4_3_2">
+          <span class="md-nav__icon md-icon"></span>
+          Varcade Games
+        </label>
+        <ul class="md-nav__list" data-md-scrollfix>
+          
+            
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../internship/onboarding/varcade_games/intro_client/" class="md-nav__link">
+        Introduction
+      </a>
+    </li>
+  
+
+          
+            
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../internship/onboarding/varcade_games/system_architecture/" class="md-nav__link">
+        System Architecture
+      </a>
+    </li>
+  
+
+          
+            
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../internship/onboarding/varcade_games/reverse_engineering/" class="md-nav__link">
+        Reverse Engineering
+      </a>
+    </li>
+  
+
+          
+            
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../internship/onboarding/varcade_games/making_changes/" class="md-nav__link">
+        Making Changes
+      </a>
+    </li>
+  
+
+          
+            
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../internship/onboarding/varcade_games/tests_and_linters/" class="md-nav__link">
+        Tests and Linters
+      </a>
+    </li>
+  
+
+          
+        </ul>
+      </nav>
+    </li>
+  
+
+          
+            
+  
+  
+  
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+      
+        <input class="md-nav__toggle md-toggle" data-md-toggle="__nav_4_3_3" type="checkbox" id="__nav_4_3_3" >
+      
+      <label class="md-nav__link" for="__nav_4_3_3">
+        Plugging in games
+        <span class="md-nav__icon md-icon"></span>
+      </label>
+      <nav class="md-nav" aria-label="Plugging in games" data-md-level="3">
+        <label class="md-nav__title" for="__nav_4_3_3">
+          <span class="md-nav__icon md-icon"></span>
+          Plugging in games
+        </label>
+        <ul class="md-nav__list" data-md-scrollfix>
+          
+            
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../internship/onboarding/varcade_games/intro_server/" class="md-nav__link">
+        Introduction
+      </a>
+    </li>
+  
+
+          
+            
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../internship/onboarding/varcade_games/admin/" class="md-nav__link">
+        The Admin panel
+      </a>
+    </li>
+  
+
+          
+            
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../internship/onboarding/varcade_games/embedding_games/" class="md-nav__link">
+        Embedding games
+      </a>
+    </li>
+  
+
+          
+            
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../internship/onboarding/varcade_games/matchmaker/" class="md-nav__link">
+        The Matchmaker
+      </a>
+    </li>
+  
+
+          
+        </ul>
+      </nav>
+    </li>
+  
+
+          
+            
+  
+  
+  
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+      
+        <input class="md-nav__toggle md-toggle" data-md-toggle="__nav_4_3_4" type="checkbox" id="__nav_4_3_4" >
+      
+      <label class="md-nav__link" for="__nav_4_3_4">
+        The Game Client
+        <span class="md-nav__icon md-icon"></span>
+      </label>
+      <nav class="md-nav" aria-label="The Game Client" data-md-level="3">
+        <label class="md-nav__title" for="__nav_4_3_4">
+          <span class="md-nav__icon md-icon"></span>
+          The Game Client
+        </label>
+        <ul class="md-nav__list" data-md-scrollfix>
+          
+            
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../internship/onboarding/rps_game/intro/" class="md-nav__link">
+        Introduction
+      </a>
+    </li>
+  
+
+          
+            
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../internship/onboarding/rps_game/working_with_the_game/" class="md-nav__link">
+        Working with Rock Paper Scissors Apocalypse
+      </a>
+    </li>
+  
+
+          
+            
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../internship/onboarding/rps_game/key_concepts/" class="md-nav__link">
+        Key Concepts
+      </a>
+    </li>
+  
+
+          
+            
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../internship/onboarding/rps_game/single_player_mode/" class="md-nav__link">
+        Single player
+      </a>
+    </li>
+  
+
+          
+            
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../internship/onboarding/rps_game/the_game_engine/" class="md-nav__link">
+        The Game Engine
+      </a>
+    </li>
+  
+
+          
+            
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../internship/onboarding/rps_game/game_design/" class="md-nav__link">
+        Game Design
+      </a>
+    </li>
+  
+
+          
+        </ul>
+      </nav>
+    </li>
+  
+
+          
+            
+  
+  
+  
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+      
+        <input class="md-nav__toggle md-toggle" data-md-toggle="__nav_4_3_5" type="checkbox" id="__nav_4_3_5" >
+      
+      <label class="md-nav__link" for="__nav_4_3_5">
+        The Game Server
+        <span class="md-nav__icon md-icon"></span>
+      </label>
+      <nav class="md-nav" aria-label="The Game Server" data-md-level="3">
+        <label class="md-nav__title" for="__nav_4_3_5">
+          <span class="md-nav__icon md-icon"></span>
+          The Game Server
+        </label>
+        <ul class="md-nav__list" data-md-scrollfix>
+          
+            
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../internship/onboarding/rps_game_server/intro/" class="md-nav__link">
+        Introduction
+      </a>
+    </li>
+  
+
+          
+            
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../internship/onboarding/rps_game_server/playing_with_others/" class="md-nav__link">
+        Playing with Others
+      </a>
+    </li>
+  
+
+          
+            
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../internship/onboarding/rps_game_server/key_concepts/" class="md-nav__link">
+        Key Concepts
+      </a>
+    </li>
+  
+
+          
+            
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../internship/onboarding/rps_game_server/system_design/" class="md-nav__link">
+        System Design
+      </a>
+    </li>
+  
+
+          
+            
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../internship/onboarding/rps_game_server/the_game_engine/" class="md-nav__link">
+        The Game Engine
+      </a>
+    </li>
+  
+
+          
+        </ul>
+      </nav>
+    </li>
+  
+
+          
+            
+  
+  
+  
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+      
+        <input class="md-nav__toggle md-toggle" data-md-toggle="__nav_4_3_6" type="checkbox" id="__nav_4_3_6" >
+      
+      <label class="md-nav__link" for="__nav_4_3_6">
+        Backend Services
+        <span class="md-nav__icon md-icon"></span>
+      </label>
+      <nav class="md-nav" aria-label="Backend Services" data-md-level="3">
+        <label class="md-nav__title" for="__nav_4_3_6">
+          <span class="md-nav__icon md-icon"></span>
+          Backend Services
+        </label>
+        <ul class="md-nav__list" data-md-scrollfix>
+          
+            
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../internship/onboarding/backend/intro/" class="md-nav__link">
+        Introduction
+      </a>
+    </li>
+  
+
+          
+            
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../internship/onboarding/backend/matchmaker/" class="md-nav__link">
+        The Matchmaker
+      </a>
+    </li>
+  
+
+          
+            
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../internship/onboarding/backend/working_with_matchmaker/" class="md-nav__link">
+        Working with the Matchmaker
+      </a>
+    </li>
+  
+
+          
+            
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../internship/onboarding/backend/workers/" class="md-nav__link">
+        The Workers
+      </a>
+    </li>
+  
+
+          
+            
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../internship/onboarding/backend/stats_tracker/" class="md-nav__link">
+        The Stats Tracker
+      </a>
+    </li>
+  
+
+          
+        </ul>
+      </nav>
+    </li>
+  
+
+          
+            
+  
+  
+  
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+      
+        <input class="md-nav__toggle md-toggle" data-md-toggle="__nav_4_3_7" type="checkbox" id="__nav_4_3_7" >
+      
+      <label class="md-nav__link" for="__nav_4_3_7">
+        Instrumentation
+        <span class="md-nav__icon md-icon"></span>
+      </label>
+      <nav class="md-nav" aria-label="Instrumentation" data-md-level="3">
+        <label class="md-nav__title" for="__nav_4_3_7">
+          <span class="md-nav__icon md-icon"></span>
+          Instrumentation
+        </label>
+        <ul class="md-nav__list" data-md-scrollfix>
+          
+            
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../internship/onboarding/instrumentation/intro/" class="md-nav__link">
+        Introduction
+      </a>
+    </li>
+  
+
+          
+            
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../internship/onboarding/instrumentation/grafana/" class="md-nav__link">
+        Setting up Grafana
+      </a>
+    </li>
+  
+
+          
+            
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../internship/onboarding/instrumentation/load_test/" class="md-nav__link">
+        Running a load test
+      </a>
+    </li>
+  
+
+          
+        </ul>
+      </nav>
+    </li>
+  
+
+          
+            
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../internship/onboarding/closing_words/" class="md-nav__link">
+        Next Steps
+      </a>
+    </li>
+  
+
+          
+        </ul>
+      </nav>
+    </li>
+  
+
+          
+            
+  
+  
+  
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+      
+        <input class="md-nav__toggle md-toggle" data-md-toggle="__nav_4_4" type="checkbox" id="__nav_4_4" >
+      
+      <label class="md-nav__link" for="__nav_4_4">
+        Hands-on Tasks
+        <span class="md-nav__icon md-icon"></span>
+      </label>
+      <nav class="md-nav" aria-label="Hands-on Tasks" data-md-level="2">
+        <label class="md-nav__title" for="__nav_4_4">
+          <span class="md-nav__icon md-icon"></span>
+          Hands-on Tasks
+        </label>
+        <ul class="md-nav__list" data-md-scrollfix>
+          
+            
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../internship/tasks/overview/" class="md-nav__link">
+        How It Works
+      </a>
+    </li>
+  
+
+          
+            
+  
+  
+  
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+      
+        <input class="md-nav__toggle md-toggle" data-md-toggle="__nav_4_4_2" type="checkbox" id="__nav_4_4_2" >
+      
+      <label class="md-nav__link" for="__nav_4_4_2">
+        Junior
+        <span class="md-nav__icon md-icon"></span>
+      </label>
+      <nav class="md-nav" aria-label="Junior" data-md-level="3">
+        <label class="md-nav__title" for="__nav_4_4_2">
+          <span class="md-nav__icon md-icon"></span>
+          Junior
+        </label>
+        <ul class="md-nav__list" data-md-scrollfix>
+          
+            
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../internship/tasks/junior/001_keyboard_login/" class="md-nav__link">
+        Keyboard Shortcuts
+      </a>
+    </li>
+  
+
+          
+            
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../internship/tasks/junior/002_skip_cutscene/" class="md-nav__link">
+        Skip, Skip Skip
+      </a>
+    </li>
+  
+
+          
+            
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../internship/tasks/junior/003_build_tools/" class="md-nav__link">
+        Build Tools
+      </a>
+    </li>
+  
+
+          
+            
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../internship/tasks/junior/004_error_handling/" class="md-nav__link">
+        Error Handling
+      </a>
+    </li>
+  
+
+          
+        </ul>
+      </nav>
+    </li>
+  
+
+          
+            
+  
+  
+  
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+      
+        <input class="md-nav__toggle md-toggle" data-md-toggle="__nav_4_4_3" type="checkbox" id="__nav_4_4_3" >
+      
+      <label class="md-nav__link" for="__nav_4_4_3">
+        Mid
+        <span class="md-nav__icon md-icon"></span>
+      </label>
+      <nav class="md-nav" aria-label="Mid" data-md-level="3">
+        <label class="md-nav__title" for="__nav_4_4_3">
+          <span class="md-nav__icon md-icon"></span>
+          Mid
+        </label>
+        <ul class="md-nav__list" data-md-scrollfix>
+          
+            
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../internship/tasks/mid/001_game_settings/" class="md-nav__link">
+        Settings Menu
+      </a>
+    </li>
+  
+
+          
+        </ul>
+      </nav>
+    </li>
+  
+
+          
+            
+  
+  
+  
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+      
+        <input class="md-nav__toggle md-toggle" data-md-toggle="__nav_4_4_4" type="checkbox" id="__nav_4_4_4" >
+      
+      <label class="md-nav__link" for="__nav_4_4_4">
+        Senior
+        <span class="md-nav__icon md-icon"></span>
+      </label>
+      <nav class="md-nav" aria-label="Senior" data-md-level="3">
+        <label class="md-nav__title" for="__nav_4_4_4">
+          <span class="md-nav__icon md-icon"></span>
+          Senior
+        </label>
+        <ul class="md-nav__list" data-md-scrollfix>
+          
+            
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../internship/tasks/senior/000_per_round_stats/" class="md-nav__link">
+        Per Round Stats
+      </a>
+    </li>
+  
+
+          
+            
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../internship/tasks/senior/001_deduplication/" class="md-nav__link">
+        Deduplication
+      </a>
+    </li>
+  
+
+          
+        </ul>
+      </nav>
+    </li>
+  
+
+          
+            
+  
+  
+  
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+      
+        <input class="md-nav__toggle md-toggle" data-md-toggle="__nav_4_4_5" type="checkbox" id="__nav_4_4_5" >
+      
+      <label class="md-nav__link" for="__nav_4_4_5">
+        Principle
+        <span class="md-nav__icon md-icon"></span>
+      </label>
+      <nav class="md-nav" aria-label="Principle" data-md-level="3">
+        <label class="md-nav__title" for="__nav_4_4_5">
+          <span class="md-nav__icon md-icon"></span>
+          Principle
+        </label>
+        <ul class="md-nav__list" data-md-scrollfix>
+          
+            
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../internship/tasks/principle/001_async_node/" class="md-nav__link">
+        Async Game Server
+      </a>
+    </li>
+  
+
+          
+        </ul>
+      </nav>
+    </li>
+  
+
+          
+        </ul>
+      </nav>
+    </li>
+  
+
+          
+        </ul>
+      </nav>
+    </li>
+  
+
+    
+  </ul>
+</nav>
+                  </div>
+                </div>
+              </div>
+            
+            
+              
+              <div class="md-sidebar md-sidebar--secondary" data-md-component="sidebar" data-md-type="toc" >
+                <div class="md-sidebar__scrollwrap">
+                  <div class="md-sidebar__inner">
+                    
+<nav class="md-nav md-nav--secondary" aria-label="Table of contents">
+  
+  
+  
+    
+  
+  
+    <label class="md-nav__title" for="__toc">
+      <span class="md-nav__icon md-icon"></span>
+      Table of contents
+    </label>
+    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#robot-brain" class="md-nav__link">
+    Robot Brain
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#final-thoughts" class="md-nav__link">
+    Final Thoughts
+  </a>
+  
+</li>
+      
+    </ul>
+  
+</nav>
+                  </div>
+                </div>
+              </div>
+            
+          
+          <div class="md-content" data-md-component="content">
+            <article class="md-content__inner md-typeset">
+              
+                
+                
+                <h1 id="robot-anatomy">Robot Anatomy</h1>
+<p>Everyone computer has a few core components, most of which you will no doubt have heard of:</p>
+<ul>
+<li>CPU</li>
+<li>Memory (or RAM)</li>
+<li>Hard drive</li>
+<li>Motherboard</li>
+</ul>
+<p>And most will have other components that you will definitely have heard of:</p>
+<ul>
+<li>Keyboard/Mouse</li>
+<li>Monitor</li>
+<li>Speakers</li>
+</ul>
+<p>So how do these familiar words apply to our robot? Let’s start with the fact that we told our robot what to do by speaking to it. We issued commands one after another and our robot executed them. This means the robot must have ears right? The technical term for ‘Robot Ears’ is one we are all familiar with - a microphone. A mouse, keyboard or the touch screen on your phone will work the same way, except we do not use our voice, we interact through touch. These are all known as input devices. </p>
+<p>You may have seen the letters I and O used like this: I/O. You may have also guessed that the I stands for ‘Input’. The ‘O’ stands for ‘Output’. </p>
+<p>In the case of our Robot, the Output is the robot’s actions. So when we told it to open the fridge, the command ‘Open the fridge’ is an input, and the output is the robot opening the fridge. </p>
+<p>When it comes to computers, the output devices we are most familiar with are our monitor, or screen, and our speakers.</p>
+<p>Have you ever looked at a picture on a computer? Chances are you did so by using your mouse to double click on a file, or clicked on a friend’s Facebook post. This is your input; you are telling the computer you want to see the picture by clicking on it. The computer will then display that image on your screen; that is the output. We are implicitly familiar with the concept of inputs and outputs in our everyday lives. Have you ever bought a bottle of water from a vending machine? You input a coin and the vending machine outputs your water. Most of our daily actions consist of input and outputs, or actions and reactions - computers are no different.</p>
+<p>This gets this a little more complicated if we consider something like the humble text message. When you type a text message on your phone the input is your finger touching the onscreen keyboard (if you are using a touch screen), the output is a letter displayed on your screen. By tapping on the keyboard you are issuing a command - add this letter to my message. The command is received by the phone and it will obediently add the selected letter to your message. </p>
+<p>If you tap the send button you have issued a different command, one that causes the phone to send your message. The output in this case is a message sent from your phone. Interestingly, your output, the message, will become the input on the recipient's phone. Your phone, and your mobile network, have issued a command to their phone - saying ‘notify this person that they have a message’. That person can then tap the open button on their screen, which is a new input, and the phone will display that message, which is the final output.</p>
+<p>Let's worry about the complexity of sending messages between devices later, for now let's go back to our Robot.</p>
+<p>we know that if we tell it to do something it will do that thing, but how does it turn that command, the input, into the action of doing it, or the output. It needs some sort of transformation to happen in the middle. This is where it is easier just to think of it as magic but of course it isn’t. Essentially it is a combination of two things: </p>
+<ul>
+<li>CPU (Central Processing Unit)</li>
+<li>Memory </li>
+</ul>
+<h2 id="robot-brain">Robot Brain</h2>
+<p>The CPU is one part of the Robot’s brain. It is the thing that takes the input and performs the necessary actions to provide the expected output. </p>
+<p>Remember earlier on when we talked about the robot asking questions about its environment? Is there cheese in the fridge, is it spoiled etc... It is the CPU that is manages this this. It can be used to compare things and take certain actions depending on the state of those things. </p>
+<p>When we create a computer program we are actually creating a plan for the CPU to follow. Let's not worry about <strong>exactly</strong> how the CPU executes our plan right now, just know that it is the CPU that is processing the commands we submit to our robot.</p>
+<p>The other half of our robot's brain is its memory. </p>
+<p>In order to function effectively, a CPU needs memory. Our Robot remembers words like ‘Open’ and ‘Fridge’. It also remembers that ‘Open’ is an action and that ‘Fridge’ is a thing. So how is it all connected? </p>
+<p>Firstly the Robot’s ears are connected to the CPU and when the ears detect sound that information is sent to the CPU. The CPU is also connected to the robot’s memory. Once it gets the command from the ears it will send that information to memory. </p>
+<p>To understand why it does this imagine if I asked you add ten different numbers together and then listed the numbers off really quickly. You would probably want to write them down. Once they are written down it is easier for you to add them together. This is the same principle as the relationship between the CPU and Memory. The CPU can store information in memory so that it can work with it later.</p>
+<p>If we were to represent this as a conversation between the various components we might end up with something like this:</p>
+<table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal">1</span>
+<span class="normal">2</span>
+<span class="normal">3</span>
+<span class="normal">4</span>
+<span class="normal">5</span>
+<span class="normal">6</span></pre></div></td><td class="code"><div class="highlight"><pre><span></span><code>Ears: Hey, CPU! You’ve gotta hear this!
+CPU: Ok ears, I’ve got a second to listen to you.
+Ears: Our master said “Open the fridge”.
+CPU: Ok, thanks - hey Memory, I need you to remember this: “Open the fridge.”
+Memory: “Open the fridge”? Got it.
+CPU: Thanks, now I can look at this command properly and figure out what to do
+</code></pre></div>
+</td></tr></table>
+<p>So our command has now been added to memory - but it is not the only thing that is in memory. A robot’s memory represents its understanding of the world in which it lives and how to interact with that world. If we tell it to go somewhere it will walk there because that action (ie. how to walk) is stored in it’s memory.</p>
+<p>Once our command is in memory the CPU can look at it one word at a time. </p>
+<p>The first word is ‘Open’, so it will search its stored actions for that action. When it finds the action in memory it will also find out what it means. In this case it will let the Robot know that it will need to use its arms. It also knows that one of the next words in the command should be a thing that can be opened. In our case it is the fridge, which is fine because a fridge can be opened, but if we had said ‘Open the cat’ the Robot wouldn’t know what to do (or it would do something horrible). </p>
+<p>Once it knows we are talking about the fridge it will need to find the fridge, scanning the kitchen for something that looks like a fridge. So it will also need to have a visual description of a fridge in memory so that it knows one when it sees it.</p>
+<p>If this is confusing, don’t worry, it’s a complex subject. I don’t expect to turn you into a computer scientist just by reading this little analogy, the idea is simply to understand the role of these components in a computer. I think it would be helpful to stop and think about the implications of what we have learned so far. </p>
+<p>If the robot stores everything it knows in memory, you can safely assume we need a lot of memory. And if the CPU is coordinating inputs and outputs, interacting with multiple components then it had better be fast. </p>
+<p>Have you ever heard someone boast that their computer has “16 gigs of RAM"? This is the amount of memory their computer has, and it is quite a lot by current standards. It means their computer can store a lot of information and actions. </p>
+<p>How about “The all new iPhone has a 2 gigahertz processor”? This is referring to the speed of its CPU - and just like our robot, the faster the better, because your phone is doing a lot of stuff.</p>
+<p>Let’s get back to our robot. Once the CPU has found the information it needs in memory it sends it to the arms. This is not unlike how our own brains work. If I told you to open the fridge you will hear my words and your brain will need to think about it for a fraction of a second before it then sends the message, in the form of electrical signals, to your arms. </p>
+<p>This all happens subconsciously of course, but your brain needs to access your memory to see what a fridge is and what opening one involves. These are things you have learned over time, both the language used to describe the everyday items that surround you and what those items look like. A computer needs to be told what these things are, just like you did.</p>
+<p>A computer’s memory is also like human memory in the sense that it has short term and long term memory. The short term memory is our RAM (Random Access Memory) and the long term memory is our hard drive. </p>
+<p>A good way to think about this is from the point of view of an actor. Lets imagine an actor has lots of scripts to learn. Sitting on their table is a stack of them. If our actor memorized each and every script then they would be able to recite lines really quickly. On the other hand, if they had not memorized each script they would have to find the script in the pile on the table, open it up and find a passage in order to recite the lines - which of course takes a lot longer. </p>
+<p>The problem that an actor has is that they cannot remember all of those scripts at once. So what do they do? They will likely memorize the script that they know they will be using next and leave the rest of them sitting idly on the table, meaning they can quickly and easily recite lines from the script that they need right now. </p>
+<p>The table is like a hard drive, we can put a lot of scripts there for later use. The scripts are the information that we are storing. In the case of a computer this would be music files, videos, photos or documents. Our actor’s brain represents our RAM. It is limited in storage so it can only hold one script at a time, but it is much faster to work with.</p>
+<p>So what does this mean for our robot? Our sandwich making program would be stored on the hard drive because there is no need for it to be taking up the limited space in our RAM. When we tell the robot to run the program the CPU will then transfer it to short term memory so that it knows how to make the sandwich. </p>
+<p>Reading the instructions from short term memory is much faster than reading from the hard drive, so rather than reading and following each instruction one at a time from hard drive, we transfer the whole lot to short term memory and then follow each instruction.</p>
+<p>We’re now ready to see the complete picture of what is happening when we tell our robot to make our sandwich:</p>
+<ol>
+<li>We issue the command: “Run ham and cheese sandwich making program”</li>
+<li>The command is picked up by the robots microphone ears</li>
+<li>The command is passed to the CPU and written down in short term memory</li>
+<li>The CPU reads the command one word at a time</li>
+<li>The words ‘run’ and ‘program’ tell us to search the hard drive, or long term memory, for a program by the name ‘ham and cheese sandwich’</li>
+<li>The program is located and transferred from the hard drive to short term memory</li>
+<li>The robot reads and performs each instruction in the program from short term memory</li>
+<li>When the robot is finished making the sandwich the program is removed from short term memory</li>
+<li>The robot awaits the next command</li>
+</ol>
+<p>If we hadn’t copied the program into our short term memory it would have taken thousands of times longer to actually read and follow each instruction. This short term memory is, however, much more expensive, which is why there is generally a lot less of it. </p>
+<p>More importantly than that, if we were to switch off our robot everything in short term memory will disappear. This is because it is ‘transient’ storage, meaning we lose all of the information in short term memory if the robot loses power. This could happen because we turn it off, or it’s battery dies or it turns itself off for some reason. Our hard drive, or long term memory, does not work like this, it will remember everything even after losing power. </p>
+<p>I think it’s about time to leave the robot to one side and talk about how all of this actually applies in the real world. How about we watch a video on our computer. In order to do this we will need two things:</p>
+<ul>
+<li>A video file (this could be a movie downloaded from the internet)</li>
+<li>A program that can player videos (usually already available on most computers)</li>
+</ul>
+<p>The video file will be represented as an icon on our computer screen. It will have a name and mostly likely a small image to go alongside it, we just need to open it and watch. </p>
+<p>To do this you will need to click with your mouse or touchpad (if on a laptop). That click is the input that tells the computer what to do. Whatever the CPU was doing at the time was interrupted by your request to open the video. It begins the process of loading the program into your short term memory, just like our sandwich maker program. </p>
+<p>You may have already guessed that the video file is also stored on our hard drive, so the next thing our CPU does is start the video player program, which then loads the video into short term memory so it can be played. </p>
+<p>The output of all this? You will see the video play on your monitor. Our video player program will use the CPU in order to process the information in the video file and send it to the monitor.</p>
+<p>There is of course a lot more going on behind the scenes but this is the basic principle of all programs. They are stored on the hard drive, loaded into memory and then often work with other information that is also stored on the hard drive. </p>
+<p>Have you ever had a computer that takes a long time to start up? You turn it on and have to wait forever before you can actually use it? This is because the computer is moving a lot of different programs into memory, getting ready for you to use it. Over time our computer seems to get slower and slower but this is more likely caused by more information being transferred between long and short term memory. You may install a new program that runs as soon as your computer starts (like anti-virus software). Now every time your computer starts it will need to move this program to short term memory, meaning it is that much slower at actually starting up.</p>
+<p>Now that we have seen how these important components all interact with each other it is worth throwing out a few honorable mentions. You may have heard of a ‘motherboard’. I have spoken a lot about the CPU transferring information between long and short term memory as well as coordinating inputs and outputs. </p>
+<p>It is the motherboard that facilitates all of these communications. Each component is connected to the motherboard in such a way that electrical signals can be sent between them. </p>
+<p>We also have components that are specifically designed to work with speakers and monitors. They handle playing music as displaying fancy 3D game graphics. They are called sound cards and graphics cards. The is also a PSU, or power supply unit, which is responsible for ensuring that all of these components have enough power (electrical power that is) to function properly. </p>
+<h2 id="final-thoughts">Final Thoughts</h2>
+<p>Now that we have been through all of these core components we can think about answering the question we posed earlier on. Can our robot paint a beautiful picture or write a poem? The answer to that question is technically yes. </p>
+<p>However it would be a hugely complex program to write. Think about how careful we had to be when instructing our robot to make a simple sandwich. Also take into account that we only created a very basic version of that program. Now imagine what it would take to teach it to paint. First off we would teach it the mechanics of painting, ie. using a brush, dipping it in paint and rubbing it on the canvas etc… Everything beyond that will be an immense undertaking. I will let you go down that rabbit hole on your own if you wish; have a think about how you would command the robot to paint a picture or write a poem. The more simple version would be for the robot to simply copy existing images (ie. paint a picture of a person or a landscape that they are currently looking at.</p>
+<p>It is important to understand that there are things that computers are great at and other things that they are currently pretty bad at. Processing data and storing information is where they excel. </p>
+<p>A computer that can run a series of maths equations much faster and more accurately than a human can. If there is a well defined set of rules, or parameters, to operate within then a computer will likely do the job well (to learn this for yourself just try beating a super computer at chess!). </p>
+<p>Humans on the other hand are far better at things like designing solutions to problems (designing software for example, both technically and visually). We are also better at processing the space around us, whether that means cleaning our house or building a new one - we are incredibly efficient when it comes to navigating the world. We are also much better at just being human, sadness and laughter, joy and heartbreak are all uniquely human attributes that computers today cannot effectively simulate.</p>
+<p>There is a test named ‘The Turing Test’ (named after Alan Turing, a hugely important figure in the development of computer science) in which human participants are sat down at several different computers and must chat to one another. They are all in separate rooms while chatting. The trick is that one of the participants is actually a computer program. </p>
+<p>The challenge is to fool the human into thinking they are talking to another human when in fact they are talking to a computer. At the time of writing this there is a website you can go to in order to try this out for yourself: www.cleverbot.com. The website is a simple chat application where you can converse with a ‘chatbot’. A chat bot is an artificially intelligent computer program that will respond to the things you say. You can have full blown conversations with this bot, however it is pretty obvious that you are not talking to a human.</p>
+                
+              
+              
+                
+
+
+              
+            </article>
+          </div>
+        </div>
+        
+      </main>
+      
+        
+<footer class="md-footer">
+  
+  <div class="md-footer-meta md-typeset">
+    <div class="md-footer-meta__inner md-grid">
+      <div class="md-footer-copyright">
+        
+        Made with
+        <a href="https://squidfunk.github.io/mkdocs-material/" target="_blank" rel="noopener">
+          Material for MkDocs
+        </a>
+        
+      </div>
+      
+    </div>
+  </div>
+</footer>
+      
+    </div>
+    <div class="md-dialog" data-md-component="dialog">
+      <div class="md-dialog__inner md-typeset"></div>
+    </div>
+    <script id="__config" type="application/json">{"base": "../../..", "features": [], "translations": {"clipboard.copy": "Copy to clipboard", "clipboard.copied": "Copied to clipboard", "search.config.lang": "en", "search.config.pipeline": "trimmer, stopWordFilter", "search.config.separator": "[\\s\\-]+", "search.placeholder": "Search", "search.result.placeholder": "Type to start searching", "search.result.none": "No matching documents", "search.result.one": "1 matching document", "search.result.other": "# matching documents", "search.result.more.one": "1 more on this page", "search.result.more.other": "# more on this page", "search.result.term.missing": "Missing", "select.version.title": "Select version"}, "search": "../../../assets/javascripts/workers/search.477d984a.min.js", "version": null}</script>
+    
+    
+      <script src="../../../assets/javascripts/bundle.82b56eb2.min.js"></script>
+      
+    
+  </body>
+</html>
