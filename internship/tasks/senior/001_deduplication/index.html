@@ -16,7 +16,7 @@
     
     
       
-        <title>Deduplication - Code Over Time [ALPHA]</title>
+        <title>De-duplication - Code Over Time [ALPHA]</title>
       
     
     
@@ -96,7 +96,7 @@
         <div class="md-header__topic" data-md-component="header-topic">
           <span class="md-ellipsis">
             
-              Deduplication
+              De-duplication
             
           </span>
         </div>
@@ -1439,9 +1439,60 @@
         
       
       
+        <label class="md-nav__link md-nav__link--active" for="__toc">
+          De-duplication
+          <span class="md-nav__icon md-icon"></span>
+        </label>
+      
       <a href="./" class="md-nav__link md-nav__link--active">
-        Deduplication
+        De-duplication
       </a>
+      
+        
+<nav class="md-nav md-nav--secondary" aria-label="Table of contents">
+  
+  
+  
+    
+  
+  
+    <label class="md-nav__title" for="__toc">
+      <span class="md-nav__icon md-icon"></span>
+      Table of contents
+    </label>
+    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#description" class="md-nav__link">
+    Description
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#deliverable" class="md-nav__link">
+    Deliverable
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#acceptance-criteria" class="md-nav__link">
+    Acceptance Criteria
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#task-tips" class="md-nav__link">
+    Task Tips!
+  </a>
+  
+</li>
+      
+    </ul>
+  
+</nav>
       
     </li>
   
@@ -1523,6 +1574,42 @@
     
   
   
+    <label class="md-nav__title" for="__toc">
+      <span class="md-nav__icon md-icon"></span>
+      Table of contents
+    </label>
+    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#description" class="md-nav__link">
+    Description
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#deliverable" class="md-nav__link">
+    Deliverable
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#acceptance-criteria" class="md-nav__link">
+    Acceptance Criteria
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#task-tips" class="md-nav__link">
+    Task Tips!
+  </a>
+  
+</li>
+      
+    </ul>
+  
 </nav>
                   </div>
                 </div>
@@ -1535,7 +1622,54 @@
                 
                 
                 <h1 id="de-duplication">De-duplication</h1>
-<p><strong>COMING SOON</strong></p>
+<p><strong>Category</strong>: Backend Development</p>
+<p><strong>Level:</strong> Senior</p>
+<p><strong>Tag:</strong> v0.0.1 </p>
+<h2 id="description">Description</h2>
+<p>The Matchmaker and Stats Tracker projects are quite similar in how they operate. Both are web servers that use Flask. Both store data in Redis. And both also have a background process that runs independently of the web server, processing data in the background. </p>
+<p>Currently both projects actually use the exact same code to run their background processes - however is code is duplicated across both projects, which is a problem.</p>
+<p>If we want to change this code we have to do it in two places, which results in additional development overhead and can lead to inconsistencies (imagine if you make a change in one place but forget to update the other, resulting in different behaviour from what you thought was the same code!).</p>
+<p>We need to extract this code out of both the matchmaker and stat tracker projects, create a library from it and then use that library in both projects.</p>
+<p>This way if we need to make changes to this code we only need to do it once, and then run that code in both projects.</p>
+<p>The code in question exists in:</p>
+<ul>
+<li><code>matchmaker/matchmaker/workers/worker_manager.py</code></li>
+<li><code>stats_tracker/stats_tracker/workers/worker_manager.py</code></li>
+</ul>
+<p>If you open both those files you should find them to be exactly the same.</p>
+<h2 id="deliverable">Deliverable</h2>
+<ol>
+<li>
+<p>A new Python library that contains the <code>worker_manager</code> code that is currently duplicated in both the matchmaker and stats_tracker projects. This library should also include tests (there are existing tests for the worker manager).</p>
+</li>
+<li>
+<p>Updated matchmaker project that:</p>
+<ul>
+<li>Has a dependency on your new library</li>
+</ul>
+</li>
+<li>
+<p>Updated stats_tracker project that:</p>
+<ul>
+<li>Has a dependency on your new library</li>
+</ul>
+</li>
+<li>
+<p>Updated build scripts to ensure the new library is loaded correctly as a dependency when building new docker images.</p>
+</li>
+</ol>
+<h2 id="acceptance-criteria">Acceptance Criteria</h2>
+<ul>
+<li>Varcade Games must work exactly the same as it did before, end to end - but using a shared library for the worker process, not code duplicated in two places. </li>
+</ul>
+<hr />
+<h2 id="task-tips">Task Tips!</h2>
+<ul>
+<li>You will sometimes find code duplication like this in real world projects. Sometimes it's done in an attempt to save some time, but in the long run it will almost always end up costing far more time in maintenance overhead</li>
+<li>You will need to create a Python library to solve this problem - you will be able to find plenty of resources online that explain exactly how to do this. The first step will be taking this duplicate file and putting it in a new folder at the root of the project (ie. in the varcade_games folder). You can name this folder whatever you want, but it should be somewhat descriptive of the functionality of the code.</li>
+<li>There are a number of ways you can handle including your new library in the matchmaker / stats tracker projects. You could create an 'artifact' that lives in Github that is downloaded and installed like the rest of your Python dependencies. You could also just update the local build scripts to include the dependency from the local file system.</li>
+<li>There is actually an example of sharing code like this already in Varcade Games. The game engine for Rock, Paper, Scissors Apocalypse is shared between both the client and the server. See <code>game_rps/game_engine</code> and how it is integrated in both the client and server projects.</li>
+</ul>
                 
               
               

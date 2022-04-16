@@ -1427,9 +1427,60 @@
         
       
       
+        <label class="md-nav__link md-nav__link--active" for="__toc">
+          Per Round Stats
+          <span class="md-nav__icon md-icon"></span>
+        </label>
+      
       <a href="./" class="md-nav__link md-nav__link--active">
         Per Round Stats
       </a>
+      
+        
+<nav class="md-nav md-nav--secondary" aria-label="Table of contents">
+  
+  
+  
+    
+  
+  
+    <label class="md-nav__title" for="__toc">
+      <span class="md-nav__icon md-icon"></span>
+      Table of contents
+    </label>
+    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#description" class="md-nav__link">
+    Description
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#deliverable" class="md-nav__link">
+    Deliverable
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#acceptance-criteria" class="md-nav__link">
+    Acceptance Criteria
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#task-tips" class="md-nav__link">
+    Task Tips!
+  </a>
+  
+</li>
+      
+    </ul>
+  
+</nav>
       
     </li>
   
@@ -1441,7 +1492,7 @@
   
     <li class="md-nav__item">
       <a href="../001_deduplication/" class="md-nav__link">
-        Deduplication
+        De-duplication
       </a>
     </li>
   
@@ -1523,6 +1574,42 @@
     
   
   
+    <label class="md-nav__title" for="__toc">
+      <span class="md-nav__icon md-icon"></span>
+      Table of contents
+    </label>
+    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#description" class="md-nav__link">
+    Description
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#deliverable" class="md-nav__link">
+    Deliverable
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#acceptance-criteria" class="md-nav__link">
+    Acceptance Criteria
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#task-tips" class="md-nav__link">
+    Task Tips!
+  </a>
+  
+</li>
+      
+    </ul>
+  
 </nav>
                   </div>
                 </div>
@@ -1535,7 +1622,56 @@
                 
                 
                 <h1 id="per-round-stats">Per Round Stats</h1>
-<p><strong>COMING SOON</strong></p>
+<p><strong>Category</strong>: Fullstack Development</p>
+<p><strong>Level:</strong> Senior</p>
+<p><strong>Tag:</strong> v0.0.1 </p>
+<h2 id="description">Description</h2>
+<p>When you load a game in the Varcade Games web client it will display a leaderboard and some multi-player stats for the currently logged in player.</p>
+<p>Currently the multiplayer stats sections displays the following stats:</p>
+<ul>
+<li>Games played</li>
+<li>Games won</li>
+<li>Games lost</li>
+<li>Number of times the player selected Rock</li>
+<li>Number of times the player selected Paper</li>
+<li>Number of times the player selected Scissors</li>
+<li>Number of times the player selected nothing</li>
+</ul>
+<p>We would like to add some additional stats here. Specifically we would like to track the number of rounds won/lost.</p>
+<p>Each individual game of Rock Paper Scissors can have a max of 5 rounds (if each player wins 2 rounds and then one player wins the final round to take the match).</p>
+<h2 id="deliverable">Deliverable</h2>
+<ol>
+<li>
+<p>Update the Rock Paper Scissors game server so that:</p>
+<ul>
+<li>It emits an event every time a player wins or loses a round</li>
+</ul>
+</li>
+<li>
+<p>Update the Stats Tracker so that:</p>
+<ul>
+<li>This new stat is tracked and stored</li>
+<li>The new stats are returned from the stats API</li>
+</ul>
+</li>
+<li>
+<p>Update the Varcade Games web client so that:</p>
+<ul>
+<li>This new stat is displayed in the UI</li>
+</ul>
+</li>
+</ol>
+<h2 id="acceptance-criteria">Acceptance Criteria</h2>
+<ul>
+<li>Two new stats are visible in the Varcade Games UI</li>
+<li>These new 'rounds won' and 'rounds lost' stats update after a multi-player game has been played</li>
+<li>Unit tests and integration tests updated on the stats tracker, rps game server and Varcade Games web server</li>
+</ul>
+<hr />
+<h2 id="task-tips">Task Tips!</h2>
+<ul>
+<li>This is a full feature that touches three distinct sections of the project - you will want to test each of the changes independently and all together as a single feature. This can be one of the more challenging parts of working on a distributed system. </li>
+</ul>
                 
               
               
@@ -1571,13 +1707,13 @@
       
       
         
-        <a href="../001_deduplication/" class="md-footer__link md-footer__link--next" aria-label="Next: Deduplication" rel="next">
+        <a href="../001_deduplication/" class="md-footer__link md-footer__link--next" aria-label="Next: De-duplication" rel="next">
           <div class="md-footer__title">
             <div class="md-ellipsis">
               <span class="md-footer__direction">
                 Next
               </span>
-              Deduplication
+              De-duplication
             </div>
           </div>
           <div class="md-footer__button md-icon">

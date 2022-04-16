@@ -67,7 +67,7 @@
     <div data-md-component="skip">
       
         
-        <a href="#game-settings" class="md-skip">
+        <a href="#settings-menu" class="md-skip">
           Skip to content
         </a>
       
@@ -1388,9 +1388,60 @@
         
       
       
+        <label class="md-nav__link md-nav__link--active" for="__toc">
+          Settings Menu
+          <span class="md-nav__icon md-icon"></span>
+        </label>
+      
       <a href="./" class="md-nav__link md-nav__link--active">
         Settings Menu
       </a>
+      
+        
+<nav class="md-nav md-nav--secondary" aria-label="Table of contents">
+  
+  
+  
+    
+  
+  
+    <label class="md-nav__title" for="__toc">
+      <span class="md-nav__icon md-icon"></span>
+      Table of contents
+    </label>
+    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#description" class="md-nav__link">
+    Description
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#deliverable" class="md-nav__link">
+    Deliverable
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#acceptance-criteria" class="md-nav__link">
+    Acceptance Criteria
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#task-tips" class="md-nav__link">
+    Task Tips!
+  </a>
+  
+</li>
+      
+    </ul>
+  
+</nav>
       
     </li>
   
@@ -1441,7 +1492,7 @@
   
     <li class="md-nav__item">
       <a href="../../senior/001_deduplication/" class="md-nav__link">
-        Deduplication
+        De-duplication
       </a>
     </li>
   
@@ -1523,6 +1574,42 @@
     
   
   
+    <label class="md-nav__title" for="__toc">
+      <span class="md-nav__icon md-icon"></span>
+      Table of contents
+    </label>
+    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#description" class="md-nav__link">
+    Description
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#deliverable" class="md-nav__link">
+    Deliverable
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#acceptance-criteria" class="md-nav__link">
+    Acceptance Criteria
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#task-tips" class="md-nav__link">
+    Task Tips!
+  </a>
+  
+</li>
+      
+    </ul>
+  
 </nav>
                   </div>
                 </div>
@@ -1534,8 +1621,34 @@
               
                 
                 
-                <h1 id="game-settings">Game Settings</h1>
-<p><strong>COMING SOON</strong></p>
+                <h1 id="settings-menu">Settings Menu</h1>
+<p><strong>Category</strong>: Web Frontend Development</p>
+<p><strong>Level:</strong> Mid</p>
+<p><strong>Tag:</strong> v0.0.1 </p>
+<h2 id="description">Description</h2>
+<p>In the Rock, Paper, Scissors Apocalypse client the main menu currently displays two menu options (single and multi player) as well as two settings buttons. These buttons enable and disable music and sound effects in the game.</p>
+<p>This setup is not ideal as we will likely want to add additional settings in the future and this will create a cluttered UI. For example we may want to add settings that skip cut scenes or increase/decrease game speed in single player mode. With the current UI this would result in a total of 4 settings buttons on the main menu, the function of which would be difficult to communicate to the player.</p>
+<p>What we want to do instead is have a single 'settings' button on the main menu. When the user clicks it a pop up window is displayed (this type of window is often called a 'Model'). That settings window should display the various game settings - currently limited to enable/disable music &amp; sound effects.</p>
+<h2 id="deliverable">Deliverable</h2>
+<p>Update the Rock, Paper, Scissors Apocalypse game client so that:</p>
+<ol>
+<li>There is a settings menu button on the main menu</li>
+<li>Clicking the settings menu button open a modal popup with options to enable/disable music and sound effects</li>
+<li>Setting selections are persisted locally in the users browser</li>
+</ol>
+<h2 id="acceptance-criteria">Acceptance Criteria</h2>
+<ul>
+<li>The main menu scene has a single settings button</li>
+<li>Clicking the settings button opens a modal window in game and displays buttons for enabling disabling music and sound effects</li>
+<li>If a player refreshes the page, or closes and reopens the browser their setting selections should be preserved</li>
+</ul>
+<hr />
+<h2 id="task-tips">Task Tips!</h2>
+<ul>
+<li>There is already a generic settings icon in <code>game_rps/client/src/assets/packed_textures/global.png</code> that can be used</li>
+<li>There is already logic for persisting data, see `game_rps/client/src/game_data/save_data.js</li>
+<li>You can design the modal settings window yourself - using icons or not.</li>
+</ul>
                 
               
               
