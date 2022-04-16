@@ -306,6 +306,16 @@
          <changefreq>daily</changefreq>
     </url>
     <url>
+         <loc>https://codeovertime.com/internship/tasks/junior/005_stats_ui_design/</loc>
+         <lastmod>2022-04-16</lastmod>
+         <changefreq>daily</changefreq>
+    </url>
+    <url>
+         <loc>https://codeovertime.com/internship/tasks/junior/006_leaderboard_ui_design/</loc>
+         <lastmod>2022-04-16</lastmod>
+         <changefreq>daily</changefreq>
+    </url>
+    <url>
          <loc>https://codeovertime.com/internship/tasks/mid/001_game_settings/</loc>
          <lastmod>2022-04-16</lastmod>
          <changefreq>daily</changefreq>
