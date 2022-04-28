@@ -331,6 +331,11 @@
          <changefreq>daily</changefreq>
     </url>
     <url>
+         <loc>https://codeovertime.com/internship/tasks/mid/002_user_cleanup/</loc>
+         <lastmod>2022-04-28</lastmod>
+         <changefreq>daily</changefreq>
+    </url>
+    <url>
          <loc>https://codeovertime.com/internship/tasks/principle/001_async_node/</loc>
          <lastmod>2022-04-28</lastmod>
          <changefreq>daily</changefreq>
