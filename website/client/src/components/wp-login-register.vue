@@ -18,13 +18,13 @@
             <form>
               <div class="form-group">
                 <label for="email" class="input-label">EMAIL</label>
-                <input  type="email" class="input form-control" id="email" v-model="lemail"
+                <input  autofocus @keydown.enter="login" type="email" class="input form-control" id="email" v-model="lemail"
                         aria-describedby="emailHelp">
               </div>
 
               <div class="form-group">
                 <label for="password" class="input-label">PASSWORD</label>
-                <input type="password" class="input form-control" id="password" v-model="lpassword">
+                <input @keydown.enter="login" type="password" class="input form-control" id="password" v-model="lpassword">
                 <!-- <div>
                   <a href="#">Forgot your password?</a>
                 </div> -->
@@ -63,19 +63,19 @@
 
               <div class="form-group">
                 <label for="email" class="input-label">EMAIL</label>
-                <input  type="email" class="input form-control" id="email" v-model="remail"
+                <input  autofocus @keydown.enter="register" type="email" class="input form-control" id="email" v-model="remail"
                         aria-describedby="emailHelp">
                  <small id="emailHelp" class="form-text text-muted">We'll never share your email with anyone else.</small>
               </div>
 
               <div class="form-group">
                 <label for="uname" class="input-label">USERNAME</label>
-                <input  type="text" class="input form-control" id="uname" v-model="rusername">
+                <input @keydown.enter="register" type="text" class="input form-control" id="uname" v-model="rusername">
               </div>
 
               <div class="form-group">
                 <label for="password" class="input-label">PASSWORD</label>
-                <input type="password" class="input form-control" id="password" v-model="rpassword">
+                <input @keydown.enter="register" type="password" class="input form-control" id="password" v-model="rpassword">
               </div>
               <button type="button" 
                       :disabled=!registerEnabled 
