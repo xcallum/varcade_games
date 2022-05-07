@@ -18,8 +18,8 @@
             <form>
               <div class="form-group">
                 <label for="email" class="input-label">EMAIL</label>
-                <input  autofocus @keydown.enter="login" type="email" class="input form-control" id="email" v-model="lemail"
-                        aria-describedby="emailHelp">
+                <input @keydown.enter="login" type="email" class="input form-control" id="email" v-model="lemail"
+                        aria-describedby="emailHelp" ref="keyboardfocus">
               </div>
 
               <div class="form-group">
@@ -63,8 +63,8 @@
 
               <div class="form-group">
                 <label for="email" class="input-label">EMAIL</label>
-                <input  autofocus @keydown.enter="register" type="email" class="input form-control" id="email" v-model="remail"
-                        aria-describedby="emailHelp">
+                <input  @keydown.enter="register" type="email" class="input form-control" id="email" v-model="remail"
+                        aria-describedby="emailHelp" ref="keyboardfocus">
                  <small id="emailHelp" class="form-text text-muted">We'll never share your email with anyone else.</small>
               </div>
 
@@ -121,6 +121,9 @@ export default {
       registrationFieldErrors: []
     }
   },
+  mounted() {
+    this.$nextTick(() => this.$refs.keyboardfocus.focus())
+  },
   watch: {
     rusername: function () {
       this.checkRegisterCredentials()
@@ -153,7 +156,7 @@ export default {
     }
   },
   methods: {
-
+    
     selectRegister: function() {
       this.loginSelected = false;
     },
