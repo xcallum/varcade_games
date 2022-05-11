@@ -124,11 +124,9 @@ export default {
   mounted() {
     this.$nextTick(() => this.$refs.keyboardfocus.focus())
   },
-  
   updated() {
     this.$nextTick(() => this.$refs.keyboardfocus.focus())
   },
-
   watch: {
     rusername: function () {
       this.checkRegisterCredentials()
