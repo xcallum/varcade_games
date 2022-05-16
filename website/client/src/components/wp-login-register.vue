@@ -122,10 +122,10 @@ export default {
     }
   },
   mounted() {
-    this.$nextTick(() => this.$refs.keyboardfocus.focus())
+    this.onFormChange()
   },
   updated() {
-    this.$nextTick(() => this.$refs.keyboardfocus.focus())
+    this.onFormChange()
   },
   watch: {
     rusername: function () {
@@ -160,6 +160,10 @@ export default {
   },
   methods: {
     
+    onFormChange: function() {
+      this.$nextTick(() => this.$refs.keyboardfocus.focus());
+    },
+
     selectRegister: function() {
       this.loginSelected = false;
     },
