@@ -18,14 +18,13 @@
             <form>
               <div class="form-group">
                 <label for="email" class="input-label">EMAIL</label>
-                <input  type="email" class="input form-control" id="email" v-model="lemail"
-                        aria-describedby="emailHelp" @keyup.enter="login">
+                <input @keyup.enter="login" type="email" class="input form-control" id="email" v-model="lemail"
+                        aria-describedby="emailHelp" ref="keyboardfocus">
               </div>
 
               <div class="form-group">
                 <label for="password" class="input-label">PASSWORD</label>
-                <input  type="password" class="input form-control" id="password" 
-                        v-model="lpassword" @keyup.enter="login">
+                <input @keyup.enter="login" type="password" class="input form-control" id="password" v-model="lpassword">
                 <!-- <div>
                   <a href="#">Forgot your password?</a>
                 </div> -->
@@ -64,21 +63,19 @@
 
               <div class="form-group">
                 <label for="email" class="input-label">EMAIL</label>
-                <input  type="email" class="input form-control" id="email" v-model="remail"
-                        aria-describedby="emailHelp" @keyup.enter="register">
+                <input  @keyup.enter="register" type="email" class="input form-control" id="email" v-model="remail"
+                        aria-describedby="emailHelp" ref="keyboardfocus">
                  <small id="emailHelp" class="form-text text-muted">We'll never share your email with anyone else.</small>
               </div>
 
               <div class="form-group">
                 <label for="uname" class="input-label">USERNAME</label>
-                <input  type="text" class="input form-control" id="uname" 
-                        v-model="rusername" @keyup.enter="register">
+                <input @keyup.enter="register" type="text" class="input form-control" id="uname" v-model="rusername">
               </div>
 
               <div class="form-group">
                 <label for="password" class="input-label">PASSWORD</label>
-                <input  type="password" class="input form-control" id="password" 
-                        v-model="rpassword" @keyup.enter="register">
+                <input @keyup.enter="register" type="password" class="input form-control" id="password" v-model="rpassword">
               </div>
               <button type="button" 
                       :disabled=!registerEnabled 
@@ -125,6 +122,12 @@ export default {
       registrationFieldErrors: []
     }
   },
+  mounted() {
+    this.onFormChange()
+  },
+  updated() {
+    this.onFormChange()
+  },
   watch: {
     rusername: function () {
       this.checkRegisterCredentials()
@@ -157,6 +160,10 @@ export default {
     },
   },
   methods: {
+    
+    onFormChange: function() {
+      this.$nextTick(() => this.$refs.keyboardfocus.focus());
+    },
 
     selectRegister: function() {
       this.loginSelected = false;
