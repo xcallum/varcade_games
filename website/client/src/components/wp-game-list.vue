@@ -3,37 +3,32 @@
     <div class="game-list">
 
       <div id="active-games">
-        <p>{{ heading }}</p>
+        <h2 class="list-heading">{{ heading }}</h2>
         <hr/>
         <div v-if="activeGamesList != null">
 
           <div v-if="activeGamesList.length > 0">
-            <b-container style="margin: 0; padding: 0;">
-              <b-row>
-                <b-col cols="12">
-                  <carousel :perPage="4">
-                    
-                    <slide class="p-2" v-for="game in activeGamesList" :key="game.game_id">
+            
+              <Flicking :options="{ 
+                  align: 'prev', 
+                  circular: false, 
+                  bound: true, 
+                  moveType: ['freeScroll', { stopAtEdge: true }],
+                  renderOnlyVisible: true,
+                  preventClickOnDrag: true
+                }">
+                
+                <div v-for="game in activeGamesList" :key="game.game_id" class="game-div">
+                  <div 
+                      class="card-img" 
+                      :style="`background-image: url('${game.cover_art}')`" 
+                      alt="Image - Game Cover Art"
+                      @click="selectionListener(game.game_id)">
+                      
+                  </div>
+                </div>
+              </Flicking>
 
-                      <div class="card game-card" style="width: 18rem;">
-                        <div class="card-image">
-                          <img class="card-img-top" :src="game.cover_art" alt="Image - Game Cover Art">
-                          <div v-if="playable" class="image-overlay">
-                            <router-link class="icon-link" :to="{ name: 'PlayGame', params: { gameId: game.game_id } }">
-                              <font-awesome-icon class="image-overlay-button" :icon="icoPlay" size="4x" />      
-                            </router-link>
-                          </div>
-                        </div>
-                        <div class="card-body">
-                          <h5 class="card-title">{{ game.name }}</h5>
-                          <p class="card-text">{{ game.desc }}</p>
-                        </div>
-                      </div>
-                    </slide>
-                  </carousel>
-                </b-col>
-              </b-row>
-            </b-container>
           </div>
 
           <div v-else class="empty-list">
@@ -59,21 +54,18 @@
 
 <script>
 
-  import { FontAwesomeIcon } from '@fortawesome/vue-fontawesome'
-  import { faPlay, faSpinner } from '@fortawesome/free-solid-svg-icons'
-
+  import { faSpinner } from '@fortawesome/free-solid-svg-icons'
+  
   export default {
     name: "wp-game-list",
     props: {
       heading: String, 
-      filterField: String, 
-      filterValue: String, 
-      playable: Boolean
+      filterFields: Object, 
+      playable: Boolean,
+      selectionListener: Function
     },
-    components: { FontAwesomeIcon },
     data () {
-      return {
-        icoPlay: faPlay,  
+      return { 
         loadingSpinner: faSpinner
       }
     },
@@ -83,8 +75,14 @@
           return null
         }
 
-        if (this.filterField){
-          return this.$store.state.games.filter(obj => obj[this.filterField] === this.filterValue);
+        if (this.filterFields){
+          let filtered = this.$store.state.games; 
+          for (const [filterField, filterValues] of Object.entries(this.filterFields)) {
+            filtered = filtered.filter(
+              obj => filterValues.split('|').indexOf(obj[filterField]) >= 0
+            );
+          }
+          return filtered;
         }
 
         return this.$store.state.games
@@ -101,8 +99,15 @@
 
 <style scoped>
 
+  @import url("../../node_modules/@egjs/flicking/dist/flicking.css");
+
+  .list-heading {
+    font-size: 2rem;
+    font-weight: bold;
+  }
+
   .game-list {
-    margin-bottom: 5rem;
+    margin-bottom: 6rem;
   }
 
   .loading-content {
@@ -112,54 +117,53 @@
     text-align: center;
   }
 
-  .loading-content {
-    padding: 1em;
-    display: flex;
-    justify-content: center;
-    text-align: center; 
-  }
-  
-  .game-card{
-    background: transparent;
-    border: none;
-    padding-top: 0.5em;
-    margin: 0;
-  }
-
-  .card-body {
-    padding: 0;
-    margin-top: 0.5em;
-  }
-
-  .card-image {
-    position: relative;
-  }
-
-  .icon-link {
-    color: #ff4848;
-  }
-
-  .image-overlay {
-    position: absolute;
-    top: 0;
-    bottom: 0;
-    left: 0;
-    right: 0;
-    height: 100%;
+  .card-img {
+    min-width: 400px;
+    min-height: 225px;
     width: 100%;
-    opacity: 0;
-    transition: .5s ease;
-    background: rgba(0, 0, 0, 0.5);
-  }
-
-  .image-overlay-button {
-    margin: auto;
-    display: block;
     height: 100%;
+    background-size: 400px 225px;
+
   }
 
-  .card:hover .image-overlay {
-    opacity: 1;
+  .game-div {
+    margin-right: 1rem;
   }
+
+  @media screen and (max-width: 1768px) {
+    .card-img {
+      min-width: 240px;
+      min-height: 135px;
+      background-size: 240px 135px;
+    }
+
+    .game-list {
+      margin-bottom: 3rem;
+    }
+
+    .list-heading {
+      font-size: 1.5rem;
+    }
+  }
+
+  @media screen and (max-width: 500px) {
+    .card-img {
+      min-width: 167px;
+      min-height: 94px;
+      background-size: 167px 94px;
+    }
+
+    .game-div {
+      margin-right: 0.3rem;
+    }
+
+    .game-list {
+    }
+
+    .list-heading {
+      font-size: 1.2rem;
+    }
+  }
+
 
 </style>

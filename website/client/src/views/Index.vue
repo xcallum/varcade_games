@@ -1,10 +1,13 @@
 <template>
-
-    <div class="index-screen-image">
-        <wp-top-bar v-bind:display-logout-option="false"/>
-        <div class="login-box-container">
-            <wp-login-register/>
+    <div>
+        <div class="index-screen-image" :style="headerImageHeightCSS"></div>
+        <wp-top-bar/>
+        <div>
+            <wp-vcg-intro ref="headerContent"></wp-vcg-intro>
+            <wp-homepage-pitch></wp-homepage-pitch>
+            <wp-faq></wp-faq>
         </div>
+        <wp-footer/>
     </div>
 </template>
 
@@ -14,40 +17,101 @@
         name: 'game_index',
         data () {
             return {
+                signupEmail: '',
+                headerImageHeightCSS: 'height: 100vh'
             }
         },
         methods: {
-
+            redirectToLogin () {
+                this.$router.push({ 
+                    path: '/login',
+                    query: {
+                        'createNew': 'false',
+                        'email': ''
+                    }
+                });
+            },
+            sizeHeaderImage () {
+                if (this.$refs.headerContent) {
+                    let totalHeight = this.$refs.headerContent.$el.offsetHeight + 
+                        this.$refs.headerContent.$el.offsetTop;
+                    this.headerImageHeightCSS = `height: ${totalHeight}px`;
+                }
+                else {
+                    this.headerImageHeightCSS = 'height: 100vh';
+                }
+            }
         },
-        computed: {
-          
+        mounted() {
+           this.$nextTick(() => {
+              window.addEventListener('onorientationchange', this.sizeHeaderImage);
+              window.addEventListener('resize', this.sizeHeaderImage);
+           });
+           this.sizeHeaderImage(); 
         },
-        mounted: function () {
-        },
-        created: function () {
+        created() {
+           
         }
     }
 
 </script>
 
 <style scoped>
-    
+
     .index-screen-image {
+        background: 
+            linear-gradient(rgba(0, 0, 0, 0.5), 
+            rgba(0, 0, 0, 0.7)),
+            black url('~@/assets/images/bg.jpg');
+        background-repeat: no-repeat;
+        background-position: center;
+        max-width: 100vw;
         position: absolute;
-        width: 100%;
-        height: 100%;
-        background: url(../assets/images/bg.jpg) no-repeat center center fixed;
-        -webkit-background-size: cover;
-        -moz-background-size: cover;
-        -o-background-size: cover;
+        z-index: -1; 
         background-size: cover;
+        position: absolute;
+        top: 0px;
+        left: 0;
+        right: 0;
+        bottom: 0;
+        overflow: hidden;
     }
 
-    .login-box-container {
-        display: flex;
-        align-items: center;
-        margin-left: 10%;
-        height: 80%;
+    @media only screen 
+    and (max-device-height : 1168px) {
+        .index-screen-image {
+            top: 0px;
+        }
+    }
+
+    @media (max-device-width : 1940px) {
+        .header-wrapper {
+            margin: 0 5%;
+        }
+    }
+
+    @media (max-device-width : 800px) {
+        .header-text {
+            font-size: 28px;
+            max-width: 10%;
+        }
+    }
+
+    @media (max-device-width : 500px) {
+        .btn-custom {
+            font-size: 12px;
+            line-height: 14px;
+            padding: 0.2rem 0.5rem;
+        }
+    
+        .header-button {
+            font-size: 0.9rem;
+            max-height: 1.9rem;
+        }
+
+        .header-text {
+            font-size: 16px;
+        }
     }
 
 </style>

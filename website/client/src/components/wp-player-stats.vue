@@ -1,13 +1,6 @@
 <template>
 
     <div>
-            
-        <h2>
-            Your Stats
-        </h2>
-
-        <hr/>
-        
         <div class="info-box-bg" v-bind:class="{ 'info-box-empty': !statsLoaded || !statsRecorded }">
             <div v-if="playerGameStats">
                 <div v-if="statsRecorded">
@@ -17,16 +10,16 @@
                         </li>
                     </ul>
                 </div>
-                <div v-else class="info-box-layout">
-                    <div>
+                <div v-else class="row info-box-layout justify-content-center">
+                    <div class="col stats-empty">
                         <h5>Looks like you haven't played this game online yet, what are you wating for?</h5>
                         <p>As you play your stats will be updated here.</p>
                     </div>
                 </div>
             </div>
-            <div v-else>
-                <div>
-                    <p>Loading stats...</p>
+            <div v-else class="row">
+                <div class="col stats-loading">
+                    <p>Loading your stats...</p>
                     <font-awesome-icon class="red-ico" :icon="loadingSpinner" spin size="4x"/>
                 </div>
             </div>
@@ -40,7 +33,6 @@
 
     import axios from 'axios';
 
-    import { FontAwesomeIcon } from '@fortawesome/vue-fontawesome'
     import { faSpinner } from '@fortawesome/free-solid-svg-icons'
 
     import {runWithRetries} from '../utils.js';
@@ -50,7 +42,6 @@
         props: {
             'selectedGame': Object
         },
-        components: {FontAwesomeIcon},
         data () {
             return {
                 playerGameStats: null,
@@ -113,6 +104,15 @@
 
 <style>
 
- 
+    .stats-empty {
+        margin: 1rem;
+        text-align: center;
+        max-width: 70%;
+    } 
+
+    .stats-loading {
+        text-align: center;
+        margin: 2rem;
+    }
 
 </style>

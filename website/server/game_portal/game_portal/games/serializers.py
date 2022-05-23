@@ -12,6 +12,8 @@ class GameSerializer(serializers.HyperlinkedModelSerializer):
             "desc",
             "client_url",
             "cover_art",
+            "banner_art",
             "stats_config",
             "game_state",
+            "game_type",
         )

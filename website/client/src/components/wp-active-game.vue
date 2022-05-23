@@ -1,37 +1,19 @@
 <template>
 
-    <div>
-        <!-- Game canvas is injected into this element -->
+    <div class="game-root"> 
+        <div :class="gameLoaded ? 'loaded' : 'loading'" class="row align-items-center">
+            <font-awesome-icon class="col red-ico" :icon="loadingSpinner" spin size="4x"/>
+        </div>
         <div class="game-container">
-            <div v-if="!gameLoaded">
-                <font-awesome-icon class="red-ico" :icon="loadingSpinner" spin size="4x"/>
-            </div>
-            <div v-show="gameLoaded" id="gameContainer" ref="gameContainer"></div>
+            <!-- Game canvas is injected into this element -->
+            <div id="gameContainer" ref="gameContainer"></div>
         </div>
-
-        <div v-if="selectedGame" class="game-desc">
-            <div class="row">
-                <div class="col-2">
-                    <img :src="selectedGame.cover_art" class="img-fluid" max-width="256" alt="Image - Game Cover Art">
-                </div>
-                <div class="col">
-                    <h2>{{ selectedGame.name }}</h2>
-                    <hr/>
-                    <p>
-                        {{ selectedGame.desc }}
-                    </p>
-                </div>
-            </div>
-        </div>
-
         <wp-matchmaker :game-id="gameId"/>
-
     </div>
 
 </template>
 
 <script>
-    import { FontAwesomeIcon } from '@fortawesome/vue-fontawesome'
     import { faSpinner } from '@fortawesome/free-solid-svg-icons'
 
     export default {
@@ -39,7 +21,6 @@
         props: {
             'selectedGame': Object
         },
-        components: {FontAwesomeIcon},
         data () {
             return {
                 loadingSpinner: faSpinner,
@@ -123,7 +104,33 @@
 
 </script>
 
-<style>
+<style scoped>
 
+    .loading {
+        position: absolute;
+        width: 100vw;
+        height: 100vh;
+        z-index: 10;
+        top:  0;
+        left: 0;
+    }
 
+    .loaded {
+        display: none;
+    }
+
+    .game-root {
+        height: 100vh;
+        display: flex;
+        margin: 2rem 0;
+        justify-content: center;
+    }
+
+    .game-container {
+        max-width: 960px;
+        max-height: 640px;
+        width: 100%;
+        height: 100%;
+    }
+    
 </style>

@@ -1,5 +1,5 @@
 <template>
-
+  <div class="login-container">
     <div class="form-box-bg">
 
         <div class="container">
@@ -7,8 +7,8 @@
           <div v-if="loginSelected">
 
             <div class="login-header">            
-              <h4 class="login-title">Welcome Back!</h4>
-              <p>Ready to play some games?</p>
+              <h4 class="login-title">{{ title }}</h4>
+              <p>{{ subtitle }}</p>
             </div>
             
             <div v-if="showInvalidCredentialsError" class="login-error">
@@ -93,7 +93,8 @@
 
         </div>
     </div>
-
+    
+  </div>
 </template>
 
 <script>
@@ -104,7 +105,7 @@ import {login, register} from '../auth.js';
 
 export default {
   name: "wp-login-register",
-  props: [],
+  props: ["title", "subtitle", "showRegister", "prepopulatedEmail"],
   data () {
     return {
       loginSelected: true,
@@ -156,7 +157,7 @@ export default {
         return "Register Now"
       }
       return "Please enter a valid Email address, username and password."
-    }
+    },
   },
   methods: {
     
@@ -200,6 +201,7 @@ export default {
     },
 
     login: function() {
+      if (!this.loginEnabled) return;
       this.showInvalidCredentialsError = false
       login(this.$store, this.lemail, this.lpassword, () => {
         this.fetchUserProfile();
@@ -209,6 +211,7 @@ export default {
     },
 
     register: function() {
+      if (!this.registerEnabled) return;
       register(this.$store, this.remail, this.rusername, this.rpassword, () => {  // On success
           this.fetchUserProfile();
         }, (status, errorData) => { //onError
@@ -231,9 +234,16 @@ export default {
         console.log('Got user info, login complete.');
         this.$router.push({ name: 'Games' })
       });
+    },
+  },
+  beforeMount: function () {
+    this.loginSelected = this.showRegister == null || this.showRegister === "false";
+    if (this.prepopulatedEmail) {
+      this.remail = this.prepopulatedEmail;
+      this.lemail = this.prepopulatedEmail;
     }
-
   }
+
 }
 
 </script>
@@ -248,15 +258,15 @@ export default {
     font-weight: bold;
   }
 
+  .login-container {
+    max-width: 500px;
+    width: 100%;
+  }
+
   .container {
-    width: 30em;
     padding: 1em;
     line-height: 20px;
     color: #c9c9c9;
-  }
-
-  .extended-container {
-    width: 60em;
   }
 
   .input {
@@ -339,6 +349,13 @@ export default {
     background: #343a40;
     border-radius: 5px;
     padding: 1em;
+    max-width: 30em;
+    width: 100%;
+  }
+
+  .guest_button {
+    max-width: 30em;
+    width: 100%;
   }
 
 

@@ -16,9 +16,16 @@ import { globalLayoutData } from './game_data/layout.js'
 
 const config = {
   type: Phaser.AUTO,
+  // Experimental fullscreen stuff
+  scale: {
+    mode: Phaser.Scale.FIT,
+    fullscreenTarget: 'gameContainer'
+    // width: globalLayoutData.screenWidth,
+    // height: globalLayoutData.screenHeight
+  },
+  parent: 'gameContainer',
   width: globalLayoutData.screenWidth,
   height: globalLayoutData.screenHeight,
-  parent: 'gameContainer',
   scene: [
     BootScene,
     LoadingScene,

@@ -8,19 +8,20 @@ import Vue from 'vue'
 import Vuex from 'vuex'
 import VueRouter from 'vue-router'
 import axios from 'axios'
-import VModal from 'vue-js-modal'
 
 import { clientConfig } from './config.js'
 
+import Flicking from "@egjs/vue-flicking";
+import { FontAwesomeIcon } from '@fortawesome/vue-fontawesome'
 import { BootstrapVue, IconsPlugin } from 'bootstrap-vue'
 
 import 'bootstrap/dist/css/bootstrap.css'
 import 'bootstrap-vue/dist/bootstrap-vue.css'
-
-import VueCarousel from 'vue-carousel'
+import './assets/css/main.css';
 
 // App imports come last or CSS will act funny
 import Index from './views/Index.vue'
+import Login from './views/Login.vue'
 import GamePortal from './views/GamePortal.vue'
 import GamePlay from './views/GamePlay.vue'
 
@@ -32,17 +33,15 @@ import GamePlay from './views/GamePlay.vue'
 
 import { refreshAuthToken, loadTokensFromLocalStorage } from './auth.js'
 
-Vue.use(BootstrapVue)
-Vue.use(IconsPlugin)
-Vue.use(VModal)
-
-Vue.use(VueCarousel)
-
 // ######################################################
 // #
 // #                  VUES
 // #
 // ######################################################
+
+Vue.use(BootstrapVue);
+Vue.use(IconsPlugin);
+Vue.use(Flicking);
 
 Vue.config.errorHandler = function (err, vm, info) {
   alert('Err: ' + err + ', info: ' + info)
@@ -56,6 +55,9 @@ window.onerror = function (message, source, lineno, colno, error) {
   console.error('Exception thrown', source, lineno)
 }
 
+
+Vue.component('font-awesome-icon', FontAwesomeIcon);
+
 Vue.component('wp-info-board', require('./components/wp-info-board.vue').default)
 Vue.component('wp-game-list', require('./components/wp-game-list.vue').default)
 Vue.component('wp-login-register', require('./components/wp-login-register.vue').default)
@@ -65,6 +67,11 @@ Vue.component('wp-matchmaker', require('./components/wp-matchmaker.vue').default
 Vue.component('wp-player-stats', require('./components/wp-player-stats.vue').default)
 Vue.component('wp-game-leaderboard', require('./components/wp-game-leaderboard.vue').default)
 Vue.component('wp-active-game', require('./components/wp-active-game.vue').default)
+Vue.component('wp-faq', require('./components/wp-faq.vue').default)
+Vue.component('wp-homepage-pitch', require('./components/wp-homepage-pitch.vue').default)
+Vue.component('wp-vcg-intro', require('./components/wp-vcg-intro.vue').default)
+Vue.component('wp-featured-game', require('./components/wp-featured-game.vue').default)
+Vue.component('wp-game-info', require('./components/wp-game-info.vue').default)
 
 // ######################################################
 // #
@@ -149,13 +156,10 @@ Vue.use(VueRouter)
 const routes = [
   {
     path: '/',
-    name: 'Login',
+    name: 'Home',
     component: Index,
     meta: {
-      title: 'VarCade Games',
-      meta: {
-        requiresAuth: false
-      },
+      title: 'Varcade Games',
       metaTags: [
         {
           name: 'description',
@@ -169,33 +173,33 @@ const routes = [
     }
   },
   {
+    name: 'Login',
+    path: '/login',
+    component: Login
+  },
+  {
     name: 'Games',
     path: '/games',
-    component: GamePortal,
-    props: true,
-    meta: {
-      requiresAuth: true
-    }
+    component: GamePortal
   },
   {
     name: 'PlayGame',
     path: '/games/play/:gameId',
     component: GamePlay,
-    props: true,
-    meta: {
-      requiresAuth: true
-    }
+    props: true
   }
 ]
 
 const router = new VueRouter({
   routes,
-  mode: 'history'
+  mode: 'history',
+  hashbang: false
 })
 
 router.beforeEach((to, from, next) => {
   console.log(`Navigating to ${to.path}`)
-  if (to.name === 'Login' && store.getters.loggedIn) { // already logged in, go straight to games
+  // already logged in, go straight to games
+  if ((to.name === 'Login' || to.name === 'Home') && store.getters.loggedIn) { 
     next({ name: 'Games' })
   } else {
     if (to.matched.some(record => record.meta.requiresAuth)) {
